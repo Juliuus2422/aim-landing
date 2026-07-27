@@ -448,7 +448,7 @@ function SystemMap() {
    Elle tourne en boucle sur plusieurs situations réelles, et tu peux
    naviguer manuellement entre les scénarios. */
 
-const V_STEPS = ["Événement", "Analyse", "Proposition", "Ta validation", "Mémoire"];
+const V_STEPS = ["Événement", "Analyse", "Proposition", "Validation", "Mémoire"];
 
 const SCENARIOS = [
   {
@@ -1420,14 +1420,20 @@ function Developpement() {
         {/* le chemin que suit chaque outil */}
         <Reveal className="mt-8">
           <div className="hairline rounded-2xl px-6 py-6 bg-white/[0.02]">
-            <div className="flex flex-wrap items-center justify-center gap-x-2 gap-y-3 mb-4">
+            <div className="flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:gap-x-2 sm:gap-y-3 mb-4">
               {DEV_PIPELINE.map((s, i) => (
-                <span key={s} className="flex items-center gap-2">
-                  <span className="font-mono text-[11px] sm:text-xs tracking-wider text-white/75 border border-white/10 rounded-full px-3.5 py-1.5 bg-white/[0.03]">
+                <span key={s} className="flex items-center gap-2 w-full sm:w-auto">
+                  <span className="font-mono text-[11px] sm:text-xs tracking-wider text-white/75 border border-white/10 rounded-full px-3.5 py-1.5 bg-white/[0.03] w-full text-center sm:w-auto">
+                    <span className="text-violet-300/70 sm:hidden">
+                      {String(i + 1).padStart(2, "0")} ·{" "}
+                    </span>
                     {s}
                   </span>
                   {i < DEV_PIPELINE.length - 1 && (
-                    <ArrowRight size={13} className="text-violet-300/60" />
+                    <ArrowRight
+                      size={13}
+                      className="text-violet-300/60 hidden sm:block"
+                    />
                   )}
                 </span>
               ))}
