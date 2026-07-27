@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useRef, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
 import {
   Brain,
@@ -593,33 +593,30 @@ const PHASE_BADGE = [
   { label: "résolu", cls: "border-emerald-400/30 text-emerald-300/90 bg-emerald-400/5" },
 ];
 
+/* durée de lecture par phase : événement, analyse (3 lignes), proposition,
+   validation, mémoire. Le temps suit la densité du contenu affiché. */
+const PHASE_MS = [4000, 6500, 5500, 3500, 5500];
+
 function ValidationScene() {
   const [phase, setPhase] = useState(0);
   const [scenario, setScenario] = useState(0);
   const timerRef = useRef(null);
 
-  const startTimer = useCallback(() => {
-    clearInterval(timerRef.current);
-    timerRef.current = setInterval(() => {
-      setPhase((p) => {
-        if (p === 4) {
-          setScenario((s) => (s + 1) % SCENARIOS.length);
-          return 0;
-        }
-        return p + 1;
-      });
-    }, 2600);
-  }, []);
-
   useEffect(() => {
-    startTimer();
-    return () => clearInterval(timerRef.current);
-  }, [startTimer]);
+    timerRef.current = setTimeout(() => {
+      if (phase === 4) {
+        setScenario((s) => (s + 1) % SCENARIOS.length);
+        setPhase(0);
+      } else {
+        setPhase((p) => p + 1);
+      }
+    }, PHASE_MS[phase]);
+    return () => clearTimeout(timerRef.current);
+  }, [phase, scenario]);
 
   const goTo = (i) => {
     setScenario(i);
     setPhase(0);
-    startTimer();
   };
 
   const sc = SCENARIOS[scenario];
@@ -727,7 +724,7 @@ function ValidationScene() {
                       key={line}
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.15 + i * 0.5, duration: 0.35 }}
+                      transition={{ delay: 0.2 + i * 0.75, duration: 0.45 }}
                       className="vfield flex items-start gap-2.5 p-2.5"
                     >
                       <Check size={13} className="text-emerald-300 mt-0.5 shrink-0" />
