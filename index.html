@@ -60,7 +60,7 @@
           rgba(125, 211, 252, 0.9) 72%,
           rgba(56, 189, 248, 0) 73%
         );
-        animation: sp-rot 1.7s linear infinite reverse;
+        animation: sp-rot-rev 1.5s linear infinite;
       }
       .sp-core {
         position: absolute;
@@ -97,6 +97,11 @@
       @keyframes sp-rot {
         to {
           transform: rotate(360deg);
+        }
+      }
+      @keyframes sp-rot-rev {
+        to {
+          transform: rotate(-360deg);
         }
       }
       @keyframes sp-pulse {
@@ -152,7 +157,7 @@
           <span class="sp-ring sp-ring2"></span>
           <span class="sp-core"></span>
         </div>
-        <span class="sp-brand">L'AIM</span>
+        <span class="sp-brand">AIM</span>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>
