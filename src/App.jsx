@@ -886,27 +886,16 @@ function Nav() {
 
 /* --------------------------------- hero ------------------------------------ */
 
-function HeadlineWords({ text, className = "", delayStart = 0 }) {
-  const words = text.split(" ");
+function HeadlineLine({ text, className = "", delay = 0 }) {
   return (
-    <span className={className}>
-      {words.map((w, i) => (
-        <motion.span
-          key={i}
-          className="inline-block"
-          initial={{ opacity: 0, y: 26, filter: "blur(12px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{
-            duration: 0.65,
-            delay: delayStart + i * 0.07,
-            ease: [0.22, 1, 0.36, 1],
-          }}
-        >
-          {w}
-          {i < words.length - 1 ? "\u00A0" : ""}
-        </motion.span>
-      ))}
-    </span>
+    <motion.span
+      className={`inline-block ${className}`}
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] }}
+    >
+      {text}
+    </motion.span>
   );
 }
 
@@ -928,21 +917,21 @@ function Hero() {
           </motion.div>
 
           <h1 className="text-[2.6rem] leading-[1.04] sm:text-6xl xl:text-[4.4rem] font-extrabold tracking-[-0.03em] mb-7">
-            <HeadlineWords text="Une IA qui discute," delayStart={0.15} />
+            <HeadlineLine text="Une IA qui discute," delay={0.1} />
             <br />
-            <HeadlineWords text="tu en as déjà une." delayStart={0.45} />
+            <HeadlineLine text="tu en as déjà une." delay={0.22} />
             <br />
-            <HeadlineWords
+            <HeadlineLine
               text="Voici celle qui travaille."
               className="grad-text"
-              delayStart={0.8}
+              delay={0.34}
             />
           </h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.25, duration: 0.6 }}
+            transition={{ delay: 0.55, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="text-lg text-white/55 leading-relaxed max-w-xl mb-9"
           >
             L'AI Manager est branché sur tes outils, applique ta logique métier
@@ -953,7 +942,7 @@ function Hero() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.45, duration: 0.6 }}
+            transition={{ delay: 0.72, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="flex flex-wrap items-center gap-4 mb-10"
           >
             <a href={BOOKING_URL} className="btn-primary">
@@ -968,7 +957,7 @@ function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.7, duration: 0.8 }}
+            transition={{ delay: 0.95, duration: 0.7 }}
             className="hairline rounded-2xl px-4 py-3.5 flex items-start gap-3 max-w-xl bg-white/[0.02]"
           >
             <span className="text-violet-300 mt-0.5">
