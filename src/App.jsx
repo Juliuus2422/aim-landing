@@ -718,8 +718,9 @@ function Developpement() {
 }
 
 /* --------------------------- chapitre 6 : pour qui --------------------------
-   Sélecteur de profils : six pastilles, un seul métier affiché à la fois dans
-   un panneau composé comme le reste du récit (chip, lede, deux colonnes). */
+   Sélecteur de profils : six pastilles, un seul métier affiché à la fois.
+   Ordre de lecture du panneau : les deux colonnes (freins / missions) d'abord,
+   puis la synthèse « Ce que l'AIM change ». Sur mobile, le CTA clôt la carte. */
 
 function Icp() {
   const [active, setActive] = useState(ICPS[0].id);
@@ -781,18 +782,12 @@ function Icp() {
                   </p>
                 </div>
               </div>
-              <a href={BOOKING_URL} className="btn-ghost !text-sm justify-center sm:shrink-0">
+              <a
+                href={BOOKING_URL}
+                className="btn-ghost !text-sm !hidden sm:!inline-flex justify-center sm:shrink-0"
+              >
                 Voir l'AIM sur votre cas <ArrowRight size={15} />
               </a>
-            </div>
-
-            <div className="mb-10 max-w-3xl">
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-orange-300/80 mb-3">
-                Ce que l'AIM change
-              </p>
-              <p className="text-[16px] sm:text-lg leading-relaxed text-white/70 border-l-2 border-orange-400/50 pl-5">
-                {icp.value}
-              </p>
             </div>
 
             <div className="grid md:grid-cols-2 gap-10 md:gap-12">
@@ -825,6 +820,24 @@ function Icp() {
                 </div>
               </div>
             </div>
+
+            <div className="mt-10 max-w-3xl">
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-orange-300/80 mb-3">
+                Ce que l'AIM change
+              </p>
+              <p className="text-[16px] sm:text-lg leading-relaxed text-white/70 border-l-2 border-orange-400/50 pl-5">
+                {icp.value}
+              </p>
+            </div>
+
+            {/* CTA mobile : en fin de carte et pleine largeur. Le sm:!hidden
+                contrecarre le display hors @layer de .btn-ghost dès sm. */}
+            <a
+              href={BOOKING_URL}
+              className="btn-ghost !text-sm w-full justify-center mt-10 sm:!hidden"
+            >
+              Voir l'AIM sur votre cas <ArrowRight size={15} />
+            </a>
           </motion.div>
         </AnimatePresence>
       </div>
