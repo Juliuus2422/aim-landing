@@ -77,16 +77,18 @@ function Intro() {
 function Nav() {
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
-      <div className="max-w-6xl mx-auto flex items-center justify-between gap-3 rounded-full border border-stone-900/[0.09] bg-[#fffdf8]/85 backdrop-blur-md shadow-[0_12px_40px_-18px_rgba(38,24,10,0.3)] pl-5 pr-2 py-2">
+      <div className="max-w-5xl mx-auto flex items-center justify-between gap-3 rounded-full border border-stone-900/[0.09] bg-[#fffdf8]/85 backdrop-blur-md shadow-[0_12px_40px_-18px_rgba(38,24,10,0.3)] pl-5 pr-2 py-2">
         <a href="#" className="flex items-baseline gap-2">
           <span className="font-extrabold tracking-tight text-[17px]">AI&nbsp;Manager</span>
           <span className="font-mono text-[9px] text-stone-900/45 tracking-wider hidden sm:inline">
             by Hit The Record
           </span>
         </a>
-        <nav className="hidden lg:flex items-center gap-6 font-medium text-[13px] text-stone-900/60">
+        <nav className="hidden lg:flex items-center gap-5 font-medium text-[13px] text-stone-900/60">
           <a href="#atelier" className="hover:text-stone-900 transition-colors">L'atelier</a>
           <a href="#methode" className="hover:text-stone-900 transition-colors">La méthode</a>
+          <a href="#souverainete" className="hover:text-stone-900 transition-colors">Souveraineté</a>
+          <a href="#dev" className="hover:text-stone-900 transition-colors">Développement</a>
           <a href="#objections" className="hover:text-stone-900 transition-colors">Objections</a>
           <a href="#metiers" className="hover:text-stone-900 transition-colors">Métiers</a>
         </nav>
@@ -104,8 +106,8 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="sky-dawn relative pt-32 sm:pt-40 overflow-hidden">
-      <div className="max-w-4xl mx-auto text-center px-5 sm:px-8 relative">
+    <section className="sky-dawn relative pt-28 sm:pt-32 overflow-hidden">
+      <div className="max-w-5xl mx-auto text-center px-5 sm:px-8 relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -173,9 +175,9 @@ function Hero() {
         initial={{ opacity: 0, y: 80 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.55, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        className="horizon sun-clip mt-10 sm:mt-14"
+        className="horizon sun-clip mt-8 sm:mt-10"
       >
-        <div className="relative w-[min(94vw,46rem)] -mb-[15%]">
+        <div className="relative w-[min(90vw,42rem)] pb-6">
           <div className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,rgba(255,175,90,0.5),rgba(215,114,45,0.22)_45%,transparent_70%)] blur-2xl pointer-events-none" />
           <SystemMap />
         </div>
@@ -189,7 +191,7 @@ function Hero() {
 function Manifeste() {
   return (
     <section className="py-20 sm:py-24 px-5 sm:px-8">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-6">
             Changement d'ère
@@ -234,7 +236,7 @@ function Manifeste() {
 function Probleme() {
   return (
     <section className="py-20 px-5 sm:px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             L'état des lieux
@@ -362,7 +364,7 @@ function Atelier() {
 function Methode() {
   return (
     <section id="methode" className="py-20 px-5 sm:px-8 scroll-mt-16">
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <Reveal className="mb-14">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             La méthode
@@ -401,7 +403,7 @@ function Methode() {
 
 function Souverainete() {
   return (
-    <section className="dark-band py-20 sm:py-24 px-5 sm:px-8">
+    <section id="souverainete" className="dark-band py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center mb-14">
           <span className="fr-badge !border-white/20 !text-[#fef7ec] mb-6 inline-flex">
@@ -445,7 +447,7 @@ function Objections() {
 
   return (
     <section id="objections" className="py-20 px-5 sm:px-8 scroll-mt-16">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             Les objections
@@ -507,7 +509,7 @@ function Objections() {
 
 function Developpement() {
   return (
-    <section className="py-20 px-5 sm:px-8">
+    <section id="dev" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
@@ -594,7 +596,7 @@ function Metiers() {
 
   return (
     <section id="metiers" className="py-20 px-5 sm:px-8 scroll-mt-16">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             Les métiers
@@ -688,7 +690,7 @@ function Metiers() {
 function Demo() {
   return (
     <section className="sky-dusk pt-28 pb-20 px-5 sm:px-8 mt-10">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-5xl mx-auto text-center">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-stone-900/70 mb-6">
             La suite
@@ -714,7 +716,7 @@ function Demo() {
         </Reveal>
       </div>
 
-      <div className="max-w-6xl mx-auto mt-20 pt-8 border-t border-[#200a00]/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-[#fef7ec]">
+      <div className="max-w-5xl mx-auto mt-20 pt-8 border-t border-[#200a00]/30 flex flex-col sm:flex-row items-center justify-between gap-6 text-[#fef7ec]">
         <div className="flex items-baseline gap-2">
           <span className="font-extrabold tracking-tight">AI&nbsp;Manager</span>
           <span className="font-mono text-[10px] text-[#fef7ec]/60 tracking-wider">
