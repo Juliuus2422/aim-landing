@@ -368,7 +368,7 @@ function Constat() {
                 L'autonomisation opère ton entreprise.
               </span>
             </h2>
-            <div className="mt-8 lg:flex lg:justify-end">
+            <div className="mt-8">
               <p className="text-white/50 text-lg leading-relaxed max-w-2xl">
                 Un script s'arrête au premier imprévu. Un système autonome
                 comprend le contexte, décide, agit, et vient te chercher quand
