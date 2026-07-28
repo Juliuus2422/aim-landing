@@ -239,7 +239,7 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 sm:px-10 pt-28 pb-14">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 sm:px-10 pt-20 pb-20">
       <div className="max-w-[1400px] mx-auto w-full relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -721,11 +721,16 @@ function Icp() {
     <section id="chapitre-6" className="px-5 sm:px-10 py-24 scroll-mt-16">
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="06" label="Chapitre 6 · Pour qui">
-          <div className="mt-10 mb-14 max-w-4xl">
-            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+          <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Ton métier.</span>
               <span className="grad-text block">Ta réalité.</span>
             </h2>
+            <p className="lg:col-span-4 text-white/50 text-lg leading-relaxed lg:pt-4">
+              Six profils, la même mécanique : l'AIM apprend tes outils, ta
+              logique et ton vocabulaire, puis opère dans ton contexte.
+              Déplie le tien pour voir ce qu'il prend en charge.
+            </p>
           </div>
         </Chapter>
 
