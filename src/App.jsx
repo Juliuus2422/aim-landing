@@ -1005,7 +1005,7 @@ function Hero() {
             className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10 max-w-xl"
           >
             <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
-              Réserver ma démo <ArrowRight size={18} />
+              Réserver une démo <ArrowRight size={18} />
             </a>
             <a href="#systeme" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
               Voir comment ça marche
@@ -1724,7 +1724,7 @@ function Demo() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Réserver ma démo <ArrowRight size={20} />
+            Réserver une démo <ArrowRight size={20} />
           </motion.a>
         </Reveal>
       </div>
