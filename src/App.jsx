@@ -128,7 +128,8 @@ function Nav() {
             : "bg-gradient-to-b from-black/80 to-transparent"
         }`}
       >
-        <div className="max-w-[1400px] mx-auto flex items-center justify-between px-5 sm:px-10 h-20">
+        <div className="px-5 sm:px-10">
+          <div className="max-w-[1400px] mx-auto flex items-center justify-between h-20">
           <a href="#" className="flex items-baseline gap-2">
             <span className="font-extrabold tracking-tight text-lg">AI&nbsp;Manager</span>
             <span className="font-mono text-[10px] text-white/40 tracking-wider hidden sm:inline">
@@ -154,19 +155,20 @@ function Nav() {
               </span>
             </button>
           </div>
+          </div>
         </div>
       </header>
 
       <AnimatePresence>
         {open && (
           <motion.div
-            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md overflow-y-auto"
+            className="fixed inset-0 z-[60] bg-black/95 backdrop-blur-md overflow-y-auto px-5 sm:px-10"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <div className="max-w-[1400px] mx-auto px-5 sm:px-10 min-h-full flex flex-col">
+            <div className="max-w-[1400px] mx-auto min-h-full flex flex-col">
               <div className="flex items-center justify-between h-20 shrink-0">
                 <span className="font-extrabold tracking-tight text-lg">AI&nbsp;Manager</span>
                 <button
@@ -280,14 +282,14 @@ function Hero() {
           </motion.span>
         </h1>
 
-        <div className="mt-10 grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
+        <div className="mt-6 grid lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.65, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="lg:col-span-6 xl:col-span-5"
           >
-            <p className="text-lg text-white/55 leading-relaxed max-w-md">
+            <p className="text-lg text-white/55 leading-relaxed max-w-xl">
               L'AI Manager est branché sur tes outils, applique ta logique
               métier et exécute : relances, reporting, devis, suivi. Pendant ce
               temps, tu fais ce que personne ne peut faire à ta place.
@@ -300,7 +302,7 @@ function Hero() {
                 Lire le récit
               </a>
             </div>
-            <div className="mt-10 flex items-start gap-4 rounded-2xl border border-orange-400/25 bg-orange-400/[0.06] px-6 py-4 max-w-xl">
+            <div className="mt-8 flex items-start gap-4 rounded-2xl border border-orange-400/25 bg-orange-400/[0.06] px-6 py-4 max-w-xl">
               <Sparkles size={18} className="text-orange-300 shrink-0 mt-0.5" />
               <p className="text-[14px] leading-relaxed text-white/60">
                 <span className="text-white/90 font-semibold">
