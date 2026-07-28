@@ -305,8 +305,8 @@ function Hero() {
               <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
                 Réserver une démo <ArrowRight size={18} />
               </a>
-              <a href="#chapitre-1" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
-                Lire le récit
+              <a href="#chapitre-3" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
+                Voir comment ça marche
               </a>
             </div>
             <div className="mt-8 flex items-start gap-4 rounded-2xl border border-orange-400/25 bg-orange-400/[0.06] px-6 py-4 max-w-xl">
@@ -329,8 +329,10 @@ function Hero() {
           >
             <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(255,172,67,0.16),transparent_65%)] blur-2xl pointer-events-none" />
             <SystemMap />
-            <p className="mt-5 text-center font-mono text-[10px] tracking-[0.3em] uppercase text-white/35">
-              Ton système, en temps réel
+            {/* Légende commune aux quatre versions : la carte montre notre vraie instance. */}
+            <p className="mt-5 text-center font-mono text-[11px] text-white/35 tracking-wide max-w-md mx-auto leading-relaxed">
+              Un aperçu de notre propre instance, qui grandit chaque semaine.
+              La tienne se construira autour de tes outils, sans limite.
             </p>
           </motion.div>
         </div>
