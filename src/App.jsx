@@ -1023,11 +1023,13 @@ function Hero() {
               <Sparkles size={16} />
             </span>
             <p className="text-[13px] leading-relaxed text-white/55">
-              <span className="text-white/85 font-medium">
+              <span className="text-white/85 font-medium block">
                 Cette page a été conçue, codée et mise en ligne par l'AI
                 Manager lui-même.
-              </span>{" "}
-              Pas une métaphore : on te montre les coulisses en démo.
+              </span>
+              <span className="block mt-1">
+                Pas une métaphore : on te montre les coulisses en démo.
+              </span>
             </p>
           </motion.div>
         </div>
