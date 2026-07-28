@@ -143,10 +143,10 @@ function Nav() {
               by Hit The Record
             </span>
           </a>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={BOOKING_URL}
-              className="btn-primary !h-10 !py-0 !px-5 !text-sm !hidden sm:!inline-flex"
+              className="btn-primary !h-10 !py-0 !px-3.5 sm:!px-5 !text-xs sm:!text-sm max-[349px]:!text-[11px]"
             >
               Réserver une démo
             </a>
@@ -157,7 +157,7 @@ function Nav() {
               aria-label="Ouvrir le menu"
             >
               <Menu size={16} />
-              <span className="font-mono text-[11px] tracking-widest uppercase">
+              <span className="font-mono text-[11px] tracking-widest uppercase hidden sm:inline">
                 Menu
               </span>
             </button>
