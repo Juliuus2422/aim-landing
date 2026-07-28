@@ -943,12 +943,12 @@ function Embers() {
     const spawn = (anywhere) => ({
       x: Math.random() * width,
       y: anywhere ? Math.random() * height : height + 12,
-      r: 0.6 + Math.random() * 1.6,
-      speed: 0.12 + Math.random() * 0.35,
-      sway: 6 + Math.random() * 22,
+      r: 0.8 + Math.random() * 2.2,
+      speed: 0.18 + Math.random() * 0.5,
+      sway: 6 + Math.random() * 24,
       phase: Math.random() * Math.PI * 2,
       pulse: 0.4 + Math.random() * 1.1,
-      alpha: 0.25 + Math.random() * 0.5,
+      alpha: 0.35 + Math.random() * 0.55,
     });
 
     const resize = () => {
@@ -958,7 +958,7 @@ function Embers() {
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = width < 768 ? 24 : 40;
+      const count = width < 768 ? 45 : 90;
       particles = Array.from({ length: count }, () => spawn(true));
     };
 
@@ -976,9 +976,9 @@ function Embers() {
         const twinkle = 0.55 + 0.45 * Math.sin(t * p.pulse + p.phase);
         ctx.beginPath();
         ctx.arc(x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `hsla(${hue + 6}, 100%, 62%, ${p.alpha * twinkle})`;
-        ctx.shadowColor = `hsla(${hue + 6}, 100%, 55%, 0.8)`;
-        ctx.shadowBlur = 8;
+        ctx.fillStyle = `hsla(${hue + 6}, 100%, 64%, ${p.alpha * twinkle})`;
+        ctx.shadowColor = `hsla(${hue + 6}, 100%, 55%, 0.9)`;
+        ctx.shadowBlur = 14;
         ctx.fill();
       }
       raf = requestAnimationFrame(tick);
@@ -1012,8 +1012,8 @@ export default function App() {
      souveraineté. Écrite en variable CSS pour l'aurora et les braises. */
   const glowHue = useTransform(
     scrollYProgress,
-    [0, 0.16, 0.34, 0.58, 0.85, 0.94, 1],
-    [28, 8, 45, 24, 30, 215, 215],
+    [0, 0.15, 0.33, 0.55, 0.82, 0.92, 1],
+    [28, 2, 48, 26, 30, 210, 210],
   );
   useMotionValueEvent(glowHue, "change", (v) => {
     document.documentElement.style.setProperty("--glow-h", v.toFixed(1));
