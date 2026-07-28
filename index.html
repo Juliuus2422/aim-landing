@@ -23,102 +23,13 @@
         background: #030306;
         animation: sp-in 0.4s ease-out both;
       }
-      .sp-orb {
-        position: relative;
-        width: 68px;
-        height: 68px;
-      }
-      .sp-ring {
-        position: absolute;
-        inset: 0;
-        border-radius: 50%;
-        background: conic-gradient(
-          from 0deg,
-          rgba(139, 92, 246, 0) 0%,
-          rgba(139, 92, 246, 0.85) 55%,
-          #c4b5fd 68%,
-          rgba(139, 92, 246, 0) 69%
-        );
-        -webkit-mask: radial-gradient(
-          farthest-side,
-          transparent calc(100% - 3px),
-          #000 calc(100% - 2px)
-        );
-        mask: radial-gradient(
-          farthest-side,
-          transparent calc(100% - 3px),
-          #000 calc(100% - 2px)
-        );
-        animation: sp-rot 1.15s linear infinite;
-      }
-      .sp-ring2 {
-        inset: 11px;
-        background: conic-gradient(
-          from 180deg,
-          rgba(56, 189, 248, 0) 0%,
-          rgba(56, 189, 248, 0.55) 60%,
-          rgba(125, 211, 252, 0.9) 72%,
-          rgba(56, 189, 248, 0) 73%
-        );
-        animation: sp-rot-rev 1.5s linear infinite;
-      }
-      .sp-core {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        width: 10px;
-        height: 10px;
-        margin: -5px 0 0 -5px;
-        border-radius: 50%;
-        background: #a78bfa;
-        box-shadow: 0 0 22px 6px rgba(139, 92, 246, 0.4);
-        animation: sp-pulse 1.15s ease-in-out infinite;
-      }
       .sp-brand {
-        font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-        letter-spacing: 0.45em;
-        padding-left: 0.45em;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+        font-size: 10px;
+        letter-spacing: 0.25em;
+        padding-left: 0.25em;
         text-transform: uppercase;
-        background: linear-gradient(
-          90deg,
-          rgba(255, 255, 255, 0.3) 0%,
-          rgba(255, 255, 255, 0.95) 50%,
-          rgba(255, 255, 255, 0.3) 100%
-        );
-        background-size: 200% 100%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        -webkit-text-fill-color: transparent;
-        animation: sp-shim 2.2s linear infinite;
-      }
-      @keyframes sp-rot {
-        to {
-          transform: rotate(360deg);
-        }
-      }
-      @keyframes sp-rot-rev {
-        to {
-          transform: rotate(-360deg);
-        }
-      }
-      @keyframes sp-pulse {
-        0%,
-        100% {
-          opacity: 0.45;
-          transform: scale(0.8);
-        }
-        50% {
-          opacity: 1;
-          transform: scale(1.2);
-        }
-      }
-      @keyframes sp-shim {
-        to {
-          background-position: -200% 0;
-        }
+        color: rgba(255, 255, 255, 0.4);
       }
       @keyframes sp-in {
         from {
@@ -152,12 +63,7 @@
   <body>
     <div id="root">
       <div id="splash">
-        <div class="sp-orb">
-          <span class="sp-ring"></span>
-          <span class="sp-ring sp-ring2"></span>
-          <span class="sp-core"></span>
-        </div>
-        <span class="sp-brand">AIM</span>
+        <span class="sp-brand">AI Manager by Hit The Record</span>
       </div>
     </div>
     <script type="module" src="/src/main.jsx"></script>

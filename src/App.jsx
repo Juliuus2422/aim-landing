@@ -848,6 +848,52 @@ const NAV_LINKS = [
   { href: "#souverainete", label: "Souveraineté" },
 ];
 
+function Intro() {
+  const [done, setDone] = useState(false);
+  useEffect(() => {
+    const t = setTimeout(() => setDone(true), 2500);
+    return () => clearTimeout(t);
+  }, []);
+  return (
+    <AnimatePresence>
+      {!done && (
+        <motion.div
+          className="fixed inset-0 z-[100] flex flex-col items-center justify-center gap-6 bg-[#050507] px-6 text-center"
+          exit={{ y: "-100%" }}
+          transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
+        >
+          <motion.span
+            className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/40"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5 }}
+          >
+            AI Manager by Hit The Record
+          </motion.span>
+          <div className="font-extrabold tracking-tight leading-[1.12] text-[clamp(1.5rem,4.2vw,2.9rem)]">
+            <motion.span
+              className="block text-white/55"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              Une IA qui discute, tu en as déjà une.
+            </motion.span>
+            <motion.span
+              className="grad-text block"
+              initial={{ opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
+            >
+              Voici celle qui travaille.
+            </motion.span>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -1718,6 +1764,7 @@ export default function App() {
       <motion.div className="progress-bar" style={{ scaleX }} />
       <div className="aurora" />
       <div className="grain" />
+      <Intro />
       <Nav />
       <main>
         <Hero />
