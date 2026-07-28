@@ -83,23 +83,27 @@ function Nav() {
         Voir comment ↓
       </a>
       <div className="border-b border-white/[0.07] bg-[#0f0f10]/85 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto flex items-center justify-between px-5 sm:px-8 h-16">
+        <div className="px-5 sm:px-8">
+        <div className="max-w-6xl mx-auto flex items-center justify-between h-16">
         <a href="#" className="flex items-baseline gap-2">
           <span className="font-extrabold tracking-tight text-lg">AI&nbsp;Manager</span>
           <span className="font-mono text-[10px] text-white/40 tracking-wider hidden sm:inline">
             by Hit The Record
           </span>
         </a>
-        <nav className="hidden lg:flex items-center gap-7 font-medium text-[13.5px] text-white/55">
-          <a href="#produit" className="hover:text-white transition-colors">Le produit</a>
-          <a href="#mecanique" className="hover:text-white transition-colors">La mécanique</a>
-          <a href="#dev" className="hover:text-white transition-colors">Développement</a>
-          <a href="#souverainete" className="hover:text-white transition-colors">Souveraineté</a>
+        <nav className="hidden lg:flex items-center gap-5 font-medium text-[13px] text-white/55">
+          <a href="#constat" className="hover:text-white transition-colors">Le constat</a>
+          <a href="#probleme" className="hover:text-white transition-colors">Le problème</a>
+          <a href="#mecanique" className="hover:text-white transition-colors">Le système</a>
+          <a href="#difference" className="hover:text-white transition-colors">La différence</a>
+          <a href="#dev" className="hover:text-white transition-colors">Le développement</a>
           <a href="#metiers" className="hover:text-white transition-colors">Pour qui</a>
+          <a href="#souverainete" className="hover:text-white transition-colors">Souveraineté</a>
         </nav>
         <a href={BOOKING_URL} className="btn-primary !py-2.5 !px-5 !text-sm">
           Réserver ma démo
         </a>
+        </div>
         </div>
       </div>
     </header>
@@ -155,12 +159,12 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap justify-center items-center gap-4"
+          className="flex flex-wrap justify-center items-center gap-4 max-w-xl mx-auto"
         >
-          <a href={BOOKING_URL} className="btn-primary">
+          <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
             Réserver ma démo <ArrowRight size={18} />
           </a>
-          <a href="#produit" className="btn-ghost">
+          <a href="#produit" className="btn-ghost flex-1 justify-center">
             Voir le produit
           </a>
         </motion.div>
@@ -255,7 +259,7 @@ function ToolsStrip() {
 
 function Manifeste() {
   return (
-    <div className="py-20 sm:py-24 px-5 sm:px-8">
+    <div id="constat" className="py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto text-center">
         <Reveal>
           <span className="pill-tag mb-6 inline-flex">Changement d'ère</span>
@@ -283,7 +287,7 @@ function Manifeste() {
 
 function Probleme() {
   return (
-    <div className="py-16 px-5 sm:px-8">
+    <div id="probleme" className="py-16 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
           <span className="pill-tag mb-6 inline-flex">Le problème</span>
@@ -408,7 +412,7 @@ function Mecanique() {
 
 function Difference() {
   return (
-    <div className="py-16 px-5 sm:px-8">
+    <div id="difference" className="py-16 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
           <span className="pill-tag mb-6 inline-flex">La différence</span>
@@ -756,10 +760,10 @@ export default function App() {
           <Manifeste />
           <Probleme />
           <Mecanique />
-          <Developpement />
-          <Souverainete />
           <Difference />
+          <Developpement />
           <Metiers />
+          <Souverainete />
         </div>
         <Demo />
       </main>
