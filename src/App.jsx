@@ -204,8 +204,7 @@ function Hero() {
 
 function Produit() {
   return (
-    <section id="produit" className="relative py-24 px-5 sm:px-8 scroll-mt-24 overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(114,253,78,0.07),transparent_60%)] pointer-events-none" />
+    <section id="produit" className="relative py-24 px-5 sm:px-8 scroll-mt-24">
       <div className="max-w-6xl mx-auto relative">
         <Reveal className="text-center mb-12">
           <span className="pill-tag-dark mb-6 inline-flex">Le produit</span>
@@ -241,8 +240,7 @@ function Produit() {
 
 function Orbit() {
   return (
-    <section className="relative py-24 px-5 sm:px-8 overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(114,253,78,0.07),transparent_60%)] pointer-events-none" />
+    <section className="relative py-24 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-14 items-center relative">
         <div>
           <span className="pill-tag-dark mb-5 inline-flex">L'infrastructure</span>
@@ -750,8 +748,7 @@ function Souverainete() {
 
 function Demo() {
   return (
-    <section className="relative py-28 px-5 sm:px-8 overflow-hidden">
-      <div className="absolute inset-x-0 bottom-[-40%] h-[80%] bg-[radial-gradient(ellipse_at_bottom,rgba(114,253,78,0.12),transparent_65%)] pointer-events-none" />
+    <section className="relative py-28 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto text-center relative">
         <Reveal>
           <span className="pill-tag-dark mb-8 inline-flex">La suite</span>
@@ -782,7 +779,7 @@ function Demo() {
 
 function Footer() {
   return (
-    <footer className="relative border-t border-white/[0.06] py-12 px-5 sm:px-8">
+    <footer className="relative pt-6 pb-12 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-baseline gap-2">
           <span className="font-extrabold tracking-tight">AI&nbsp;Manager</span>
@@ -828,6 +825,8 @@ export default function App() {
         {/* Retour dans le sombre : le cerveau d'abord, la preuve ensuite.
             Le champ de points connectés couvre toute la zone foncée. */}
         <div className="relative overflow-hidden">
+          {/* Une seule nappe lumineuse pour toute la zone : aucune couture entre les sections. */}
+          <div className="absolute inset-x-0 top-0 h-[85%] bg-[radial-gradient(ellipse_at_top,rgba(114,253,78,0.07),transparent_70%)] pointer-events-none" />
           <DotsField className="dots-zone absolute inset-0 w-full h-full pointer-events-none" />
           <Orbit />
           <Produit />
@@ -842,7 +841,9 @@ export default function App() {
       </main>
       {/* Zone finale sombre : la bande démo et le footer partagent le même champ. */}
       <div className="relative overflow-hidden">
-        <DotsField className="dots-zone absolute inset-0 w-full h-full pointer-events-none" />
+        {/* Le halo part du bas de page et traverse le footer : la bande finale est d'un seul tenant. */}
+        <div className="absolute inset-x-0 bottom-0 h-[75%] bg-[radial-gradient(ellipse_at_bottom,rgba(114,253,78,0.12),transparent_65%)] pointer-events-none" />
+        <DotsField className="dots-zone-end absolute inset-0 w-full h-full pointer-events-none" />
         <Demo />
         <Footer />
       </div>
