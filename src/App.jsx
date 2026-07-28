@@ -195,7 +195,7 @@ function Manifeste() {
       <div className="max-w-5xl mx-auto text-center">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-6">
-            Changement d'ère
+            Le constat
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-7">
             L'automatisation exécute des scripts.{" "}
@@ -240,7 +240,7 @@ function Probleme() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
-            L'état des lieux
+            Le problème
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             L'IA que tout le monde utilise{" "}
@@ -306,7 +306,7 @@ function Atelier() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
-            L'atelier
+            Le système
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             Un opérateur. <span className="grad-text">Pas un chatbot.</span>
@@ -368,7 +368,7 @@ function Methode() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-14">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
-            La méthode
+            Le système
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Comment l'AIM travaille,{" "}
@@ -407,6 +407,9 @@ function Souverainete() {
     <section id="souverainete" className="dark-band py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center mb-14">
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#fef7ec]/50 mb-5">
+            Souveraineté
+          </p>
           <span className="fr-badge !border-white/20 !text-[#fef7ec] mb-6 inline-flex">
             <span className="fr-flag" /> Made in France
           </span>
@@ -451,7 +454,7 @@ function Objections() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
-            Les objections
+            La différence
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             L'IA, c'est le moteur.{" "}
@@ -600,7 +603,7 @@ function Metiers() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
-            Les métiers
+            Pour qui
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Ton métier. <span className="grad-text">Ta réalité.</span>
