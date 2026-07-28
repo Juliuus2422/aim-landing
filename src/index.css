@@ -86,11 +86,25 @@ body {
   to   { transform: translate3d(-12vw, 22vh, 0) scale(0.95); }
 }
 
-/* Sur mobile, les halos aurora manquent de place pour respirer et salissent
-   le fond plus qu'ils ne l'habillent : on les coupe sous 640px. */
+/* Sur mobile (portrait), le vw sous-dimensionne les halos : 60vw d'un écran
+   de 375px ne fait que 225px, et les deux taches restent agglutinées en haut
+   du viewport. On repasse en vmax (proportionnel à la hauteur en portrait) et
+   on répartit les halos sur toute la hauteur, un en haut à gauche et un en
+   bas à droite, pour retrouver la composition desktop. */
 @media (max-width: 640px) {
-  .aurora {
-    display: none;
+  .aurora::before {
+    width: 85vmax;
+    height: 85vmax;
+    left: -38vmax;
+    top: -22vmax;
+  }
+
+  .aurora::after {
+    width: 75vmax;
+    height: 75vmax;
+    right: -34vmax;
+    top: auto;
+    bottom: -24vmax;
   }
 }
 
