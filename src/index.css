@@ -39,7 +39,8 @@ body {
   content: "";
   position: absolute;
   border-radius: 9999px;
-  filter: blur(110px);
+  filter: blur(40px);
+  transform: translateZ(0);
   will-change: transform;
 }
 
@@ -50,9 +51,9 @@ body {
   top: -22vw;
   background: radial-gradient(
     circle at center,
-    hsla(var(--glow-h, 28), 100%, 55%, 0.3),
-    hsla(var(--glow-h, 28), 100%, 55%, 0.16) 45%,
-    transparent 70%
+    hsla(var(--glow-h, 28), 100%, 55%, 0.32),
+    hsla(var(--glow-h, 28), 100%, 55%, 0.14) 40%,
+    transparent 68%
   );
   animation: drift-a 26s ease-in-out infinite alternate;
 }
@@ -64,9 +65,9 @@ body {
   top: 10vh;
   background: radial-gradient(
     circle at center,
-    hsla(calc(var(--glow-h, 28) - 16), 100%, 58%, 0.2),
-    hsla(var(--glow-h, 28), 100%, 55%, 0.14) 50%,
-    transparent 72%
+    hsla(calc(var(--glow-h, 28) - 16), 100%, 58%, 0.22),
+    hsla(var(--glow-h, 28), 100%, 55%, 0.12) 45%,
+    transparent 70%
   );
   animation: drift-b 32s ease-in-out infinite alternate;
 }

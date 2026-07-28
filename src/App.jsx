@@ -930,9 +930,9 @@ function Embers() {
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return undefined;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      return undefined;
-    }
+    const reducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
 
     const ctx = canvas.getContext("2d");
     let raf = 0;
@@ -986,7 +986,13 @@ function Embers() {
 
     resize();
     window.addEventListener("resize", resize);
-    raf = requestAnimationFrame(tick);
+    if (reducedMotion) {
+      /* Une seule frame statique : les braises restent visibles sans bouger. */
+      tick(performance.now());
+      cancelAnimationFrame(raf);
+    } else {
+      raf = requestAnimationFrame(tick);
+    }
 
     return () => {
       cancelAnimationFrame(raf);
