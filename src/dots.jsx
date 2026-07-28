@@ -92,9 +92,14 @@ export function DotsField({ className = "" }) {
       if (reduced) draw();
     };
     window.addEventListener("resize", onResize);
+    /* Le hero change de hauteur après le mount (intro, fontes) : on suit
+       la taille réelle du canvas, pas seulement la fenêtre. */
+    const ro = new ResizeObserver(onResize);
+    ro.observe(canvas);
     return () => {
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", onResize);
+      ro.disconnect();
     };
   }, []);
 
