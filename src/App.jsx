@@ -120,7 +120,7 @@ function Hero() {
     <section className="relative pt-40 sm:pt-48 pb-20 px-5 sm:px-8 overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(ellipse_at_top,rgba(114,253,78,0.09),transparent_60%)] pointer-events-none" />
       {/* Le réseau de points connectés qui dérive : la touche futuriste du hero. */}
-      <DotsField className="dots-field absolute inset-0 pointer-events-none" />
+      <DotsField className="dots-field absolute inset-0 w-full h-full pointer-events-none" />
       <div className="max-w-6xl mx-auto text-center relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
