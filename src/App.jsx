@@ -843,10 +843,11 @@ function ValidationScene() {
 /* ---------------------------------- nav ------------------------------------ */
 
 const NAV_LINKS = [
+  { href: "#constat", label: "Le constat" },
   { href: "#probleme", label: "Le problème" },
   { href: "#systeme", label: "Le système" },
   { href: "#difference", label: "La différence" },
-  { href: "#developpement", label: "Développement" },
+  { href: "#developpement", label: "Le développement" },
   { href: "#icp", label: "Pour qui" },
   { href: "#souverainete", label: "Souveraineté" },
 ];
@@ -912,7 +913,8 @@ function Nav() {
         scrolled ? "nav-scrolled" : ""
       }`}
     >
-      <nav className="max-w-7xl mx-auto px-5 sm:px-8 h-16 flex items-center justify-between">
+      <div className="px-5 sm:px-8">
+        <nav className="max-w-7xl mx-auto h-16 flex items-center justify-between">
         <a href="#" className="flex items-baseline gap-2">
           <span className="font-extrabold tracking-tight text-[17px]">
             AI&nbsp;Manager
@@ -936,6 +938,7 @@ function Nav() {
           Réserver une démo
         </a>
       </nav>
+      </div>
     </header>
   );
 }
@@ -999,12 +1002,12 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.72, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-4 mb-10"
+            className="flex flex-wrap items-center gap-4 mb-10 max-w-xl"
           >
-            <a href={BOOKING_URL} className="btn-primary">
+            <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
               Réserver ma démo <ArrowRight size={18} />
             </a>
-            <a href="#systeme" className="btn-ghost">
+            <a href="#systeme" className="btn-ghost flex-1 justify-center">
               Voir comment ça marche
             </a>
           </motion.div>
@@ -1075,7 +1078,7 @@ function Ticker() {
 
 function Manifeste() {
   return (
-    <section className="py-16 px-5 sm:px-8">
+    <section id="constat" className="py-16 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto text-center">
         <Reveal>
           <p className="kicker mb-6">Changement d'ère</p>
