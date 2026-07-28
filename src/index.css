@@ -50,6 +50,23 @@ body {
   animation: grad-sweep 7s ease-in-out infinite;
 }
 
+/* Variante du grad-text pour le ciel nocturne du hero : mêmes reflets,
+   mais en or clair pour rester lisible sur le brun profond. */
+.grad-text-dawn {
+  background: linear-gradient(
+    100deg,
+    #ffce86 0%,
+    #ffaf5a 30%,
+    #ff9a3e 55%,
+    #ffce86 80%
+  );
+  background-size: 250% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: grad-sweep 7s ease-in-out infinite;
+}
+
 @keyframes grad-sweep {
   0%, 100% { background-position: 0% 50%; }
   50%      { background-position: 100% 50%; }
@@ -374,17 +391,17 @@ body {
    en pleine lumière, timeline verticale pour la méthode, et un coucher de
    soleil en bas de page dont la pilule de navigation reprend le dégradé. */
 
-/* Ciel d'aube du hero : la lumière culmine au milieu, là où se lève le
-   système orbital, puis redescend en crème pour se fondre sans rupture dans
-   la section du constat. Même logique de fondu que le sky-dusk du footer. */
+/* Ciel du hero : le miroir exact du sky-dusk du footer. La nuit est en
+   haut, le soleil se lève au milieu, et le bas se fond en crème sans
+   rupture dans la section du constat. Mêmes teintes, direction inversée. */
 .sky-dawn {
   background: linear-gradient(
     180deg,
-    #fef7ec 0%,
-    #ffedb2 28%,
-    #ffce86 46%,
-    #ffaf5a 62%,
-    #ffdda6 82%,
+    #200a00 0%,
+    #7c3a12 30%,
+    #d7722d 52%,
+    #ffaf5a 72%,
+    #ffce86 86%,
     #fef7ec 100%
   );
 }

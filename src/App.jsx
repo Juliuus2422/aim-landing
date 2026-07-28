@@ -120,9 +120,10 @@ function Nav() {
 }
 
 /* --------------------------------- hero ------------------------------------
-   Un ciel d'aube pleine largeur : le texte à gauche, le système orbital en
-   pleine lumière à droite. Sur mobile, l'orbital descend sous le texte et
-   reste entier : plus rien n'est coupé. */
+   Le miroir du footer : la nuit en haut, le soleil qui se lève vers le bas
+   de la section. Le texte passe en crème sur le brun profond, et le bas se
+   fond dans le crème du constat. Sur mobile, l'orbital descend sous le
+   texte et reste entier : plus rien n'est coupé. */
 
 function Hero() {
   return (
@@ -135,7 +136,7 @@ function Hero() {
             transition={{ duration: 0.5 }}
             className="flex justify-center lg:justify-start gap-3 mb-8 flex-wrap"
           >
-            <span className="fr-badge">
+            <span className="fr-badge !border-white/25 !text-[#fef7ec] !bg-white/10">
               <span className="fr-flag" /> Conçu & hébergé en France
             </span>
           </motion.div>
@@ -144,17 +145,17 @@ function Hero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-            className="text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-[-0.03em] mb-7"
+            className="text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-[-0.03em] mb-7 text-[#fef7ec]"
           >
             Une IA qui discute, tu en as déjà une.{" "}
-            <span className="grad-text">Voici celle qui travaille.</span>
+            <span className="grad-text-dawn">Voici celle qui travaille.</span>
           </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.35, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="text-lg text-stone-900/65 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-9"
+            className="text-lg text-[#fef7ec]/75 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-9"
           >
             L'AI Manager est branché sur tes outils, applique ta logique métier
             et exécute : relances, reporting, devis, suivi. Pendant ce temps, tu
@@ -170,7 +171,7 @@ function Hero() {
             <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
               Réserver une démo <ArrowRight size={18} />
             </a>
-            <a href="#atelier" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
+            <a href="#atelier" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center !border-white/30 !text-[#fef7ec] !bg-[#26180a]/20 hover:!border-white/55 hover:!bg-[#26180a]/35">
               Voir comment ça marche
             </a>
           </motion.div>
