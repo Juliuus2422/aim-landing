@@ -5,8 +5,15 @@
    s'empilent au scroll, bande de stats, accordéon plein écran pour les ICP.
    ============================================================================= */
 
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
+import { useState, useEffect, useRef } from "react";
+import {
+  motion,
+  AnimatePresence,
+  useScroll,
+  useSpring,
+  useTransform,
+  useMotionValueEvent,
+} from "framer-motion";
 import { ArrowRight, Bug, Brain, Check, Menu, Minus, Plus, Sparkles, X } from "lucide-react";
 import {
   BOOKING_URL,
@@ -910,6 +917,86 @@ function Footer() {
   );
 }
 
+/* --------------------------------- embers ----------------------------------- */
+/*  Braises incandescentes : de fines particules montent lentement dans le
+    noir, avec un léger balancement et un scintillement doux. Canvas léger
+    (40 particules, 24 sur mobile), DPR plafonné à 2, teinte synchronisée
+    sur la variable --glow-h pilotée par le scroll. Entièrement désactivé
+    quand l'utilisateur préfère réduire les animations.                      */
+
+function Embers() {
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return undefined;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return undefined;
+    }
+
+    const ctx = canvas.getContext("2d");
+    let raf = 0;
+    let width = 0;
+    let height = 0;
+    let particles = [];
+
+    const spawn = (anywhere) => ({
+      x: Math.random() * width,
+      y: anywhere ? Math.random() * height : height + 12,
+      r: 0.6 + Math.random() * 1.6,
+      speed: 0.12 + Math.random() * 0.35,
+      sway: 6 + Math.random() * 22,
+      phase: Math.random() * Math.PI * 2,
+      pulse: 0.4 + Math.random() * 1.1,
+      alpha: 0.25 + Math.random() * 0.5,
+    });
+
+    const resize = () => {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      width = window.innerWidth;
+      height = window.innerHeight;
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const count = width < 768 ? 24 : 40;
+      particles = Array.from({ length: count }, () => spawn(true));
+    };
+
+    const tick = (now) => {
+      const t = now / 1000;
+      const hue =
+        parseFloat(
+          document.documentElement.style.getPropertyValue("--glow-h"),
+        ) || 28;
+      ctx.clearRect(0, 0, width, height);
+      for (const p of particles) {
+        p.y -= p.speed;
+        if (p.y < -12) Object.assign(p, spawn(false));
+        const x = p.x + Math.sin(t * 0.4 + p.phase) * p.sway;
+        const twinkle = 0.55 + 0.45 * Math.sin(t * p.pulse + p.phase);
+        ctx.beginPath();
+        ctx.arc(x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `hsla(${hue + 6}, 100%, 62%, ${p.alpha * twinkle})`;
+        ctx.shadowColor = `hsla(${hue + 6}, 100%, 55%, 0.8)`;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+      }
+      raf = requestAnimationFrame(tick);
+    };
+
+    resize();
+    window.addEventListener("resize", resize);
+    raf = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", resize);
+    };
+  }, []);
+
+  return <canvas ref={canvasRef} className="embers" aria-hidden="true" />;
+}
+
 /* ---------------------------------- app ------------------------------------- */
 
 export default function App() {
@@ -920,10 +1007,23 @@ export default function App() {
     restDelta: 0.001,
   });
 
+  /* La teinte des halos suit le récit : orange au constat, rouge sombre au
+     problème, doré au système, retour orange, puis bleu froid à la
+     souveraineté. Écrite en variable CSS pour l'aurora et les braises. */
+  const glowHue = useTransform(
+    scrollYProgress,
+    [0, 0.16, 0.34, 0.58, 0.85, 0.94, 1],
+    [28, 8, 45, 24, 30, 215, 215],
+  );
+  useMotionValueEvent(glowHue, "change", (v) => {
+    document.documentElement.style.setProperty("--glow-h", v.toFixed(1));
+  });
+
   return (
     <>
       <motion.div className="progress-bar" style={{ scaleX }} />
       <div className="aurora" />
+      <Embers />
       <div className="grain" />
       <Intro />
       <Nav />
