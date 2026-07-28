@@ -94,7 +94,7 @@ function Nav() {
           <a href="#souverainete" className="hover:text-stone-900 transition-colors">Souveraineté</a>
         </nav>
         <a href={BOOKING_URL} className="btn-primary !py-2 !px-4 !text-[13px] !rounded-full">
-          Réserver ma démo
+          Réserver une démo
         </a>
       </div>
     </header>
@@ -148,7 +148,7 @@ function Hero() {
           className="flex flex-wrap justify-center items-center gap-4 mb-6 max-w-xl mx-auto"
         >
           <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
-            Réserver ma démo <ArrowRight size={18} />
+            Réserver une démo <ArrowRight size={18} />
           </a>
           <a href="#atelier" className="btn-ghost flex-1 justify-center">
             Visiter l'atelier
@@ -715,7 +715,7 @@ function Demo() {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
-            Réserver ma démo <ArrowRight size={20} />
+            Réserver une démo <ArrowRight size={20} />
           </motion.a>
         </Reveal>
       </div>
