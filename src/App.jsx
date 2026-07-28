@@ -85,12 +85,13 @@ function Nav() {
           </span>
         </a>
         <nav className="hidden lg:flex items-center gap-5 font-medium text-[13px] text-stone-900/60">
-          <a href="#atelier" className="hover:text-stone-900 transition-colors">L'atelier</a>
-          <a href="#methode" className="hover:text-stone-900 transition-colors">La méthode</a>
+          <a href="#constat" className="hover:text-stone-900 transition-colors">Le constat</a>
+          <a href="#probleme" className="hover:text-stone-900 transition-colors">Le problème</a>
+          <a href="#atelier" className="hover:text-stone-900 transition-colors">Le système</a>
+          <a href="#objections" className="hover:text-stone-900 transition-colors">La différence</a>
+          <a href="#dev" className="hover:text-stone-900 transition-colors">Le développement</a>
+          <a href="#metiers" className="hover:text-stone-900 transition-colors">Pour qui</a>
           <a href="#souverainete" className="hover:text-stone-900 transition-colors">Souveraineté</a>
-          <a href="#dev" className="hover:text-stone-900 transition-colors">Développement</a>
-          <a href="#objections" className="hover:text-stone-900 transition-colors">Objections</a>
-          <a href="#metiers" className="hover:text-stone-900 transition-colors">Métiers</a>
         </nav>
         <a href={BOOKING_URL} className="btn-primary !py-2 !px-4 !text-[13px] !rounded-full">
           Réserver ma démo
@@ -144,12 +145,12 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap justify-center items-center gap-4 mb-6"
+          className="flex flex-wrap justify-center items-center gap-4 mb-6 max-w-xl mx-auto"
         >
-          <a href={BOOKING_URL} className="btn-primary">
+          <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
             Réserver ma démo <ArrowRight size={18} />
           </a>
-          <a href="#atelier" className="btn-ghost">
+          <a href="#atelier" className="btn-ghost flex-1 justify-center">
             Visiter l'atelier
           </a>
         </motion.div>
@@ -158,7 +159,7 @@ function Hero() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.8, duration: 0.7 }}
-          className="studio-card inline-flex items-start gap-3 text-left max-w-md mx-auto px-5 py-4"
+          className="studio-card flex items-start gap-3 text-left max-w-xl mx-auto px-5 py-4"
         >
           <Sparkles size={18} className="text-[#d7722d] shrink-0 mt-0.5" />
           <p className="text-[13.5px] leading-relaxed text-stone-900/65">
@@ -190,7 +191,7 @@ function Hero() {
 
 function Manifeste() {
   return (
-    <section className="py-20 sm:py-24 px-5 sm:px-8">
+    <section id="constat" className="py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-5xl mx-auto text-center">
         <Reveal>
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-6">
@@ -235,7 +236,7 @@ function Manifeste() {
 
 function Probleme() {
   return (
-    <section className="py-20 px-5 sm:px-8">
+    <section id="probleme" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-12">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
@@ -755,10 +756,10 @@ export default function App() {
         <Probleme />
         <Atelier />
         <Methode />
-        <Souverainete />
         <Objections />
         <Developpement />
         <Metiers />
+        <Souverainete />
         <Demo />
       </main>
     </>
