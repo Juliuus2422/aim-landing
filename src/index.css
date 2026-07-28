@@ -515,6 +515,11 @@ body {
   /* Même hauteur que le CTA du header (2.5rem) pour un duo équilibré. */
   height: 2.5rem;
   padding: 0 1.15rem;
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 /* Sur mobile le header accueille logo + CTA + menu : le bouton menu passe en
@@ -523,11 +528,13 @@ body {
   .menu-btn {
     padding: 0 0.85rem;
   }
-  color: rgba(255, 255, 255, 0.75);
-  background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(8px);
-  cursor: pointer;
-  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+/* Cran supplémentaire pour les très petits écrans (iPhone SE 1re génération). */
+@media (max-width: 349px) {
+  .menu-btn {
+    padding: 0 0.7rem;
+  }
 }
 .menu-btn:hover {
   border-color: rgba(255, 172, 67, 0.5);
