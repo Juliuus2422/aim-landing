@@ -14,7 +14,7 @@ import {
   useTransform,
   useMotionValueEvent,
 } from "framer-motion";
-import { ArrowRight, Bug, Brain, Check, Menu, Minus, Plus, Sparkles, X } from "lucide-react";
+import { ArrowRight, Bug, Brain, Check, Menu, Sparkles, X } from "lucide-react";
 import {
   BOOKING_URL,
   TOOLS,
@@ -718,11 +718,12 @@ function Developpement() {
 }
 
 /* --------------------------- chapitre 6 : pour qui --------------------------
-   Accordéon plein écran : chaque métier est une ligne massive qui s'ouvre
-   sur ses douleurs, la valeur, et les missions confiables. */
+   Sélecteur de profils : six pastilles, un seul métier affiché à la fois dans
+   un panneau composé comme le reste du récit (chip, lede, deux colonnes). */
 
 function Icp() {
-  const [open, setOpen] = useState(ICPS[0].id);
+  const [active, setActive] = useState(ICPS[0].id);
+  const icp = ICPS.find((i) => i.id === active);
 
   return (
     <section id="chapitre-6" className="px-5 sm:px-10 py-24 scroll-mt-16">
@@ -736,90 +737,96 @@ function Icp() {
             <p className="lg:col-span-4 text-white/50 text-lg leading-relaxed lg:pt-4">
               Six profils, la même mécanique : l'AIM apprend tes outils, ta
               logique et ton vocabulaire, puis opère dans ton contexte.
-              Déplie le tien pour voir ce qu'il prend en charge.
+              Sélectionne le tien pour voir ce qu'il prend en charge.
             </p>
           </div>
         </Chapter>
 
-        <div className="border-b border-white/[0.08]">
-          {ICPS.map((icp) => {
-            const isOpen = open === icp.id;
-            return (
-              <div key={icp.id} className={`acc-row ${isOpen ? "open" : ""}`}>
-                <button
-                  onClick={() => setOpen(isOpen ? null : icp.id)}
-                  className="w-full flex items-center justify-between gap-6 py-7 px-2 sm:px-4 text-left"
-                >
-                  <span className="flex items-center gap-4 sm:gap-6 min-w-0">
-                    <span className={`shrink-0 transition-colors ${isOpen ? "text-orange-300" : "text-white/40"}`}>
-                      <icp.icon size={22} />
-                    </span>
-                    <span className="min-w-0">
-                      <span className={`block font-extrabold tracking-[-0.02em] text-xl sm:text-3xl transition-colors ${isOpen ? "text-white" : "text-white/70"}`}>
-                        {icp.title}
-                      </span>
-                      <span className="font-mono text-[11px] tracking-widest text-white/35 uppercase">
-                        {icp.subtitle}
-                      </span>
-                    </span>
-                  </span>
-                  <span className={`shrink-0 transition-colors ${isOpen ? "text-orange-300" : "text-white/40"}`}>
-                    {isOpen ? <Minus size={20} /> : <Plus size={20} />}
-                  </span>
-                </button>
-
-                <motion.div
-                  initial={false}
-                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
-                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
-                  className="overflow-hidden"
-                >
-                  <div className="px-2 sm:px-4 pb-10 grid lg:grid-cols-3 gap-8">
-                    <div>
-                      <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-rose-300/80 mb-4">
-                        Là où ça coince
-                      </p>
-                      <ul className="space-y-2.5">
-                        {icp.pains.map((pain) => (
-                          <li key={pain} className="flex items-start gap-3 text-[14px] text-white/55 leading-relaxed">
-                            <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400/70 shrink-0" />
-                            {pain}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-orange-300/80 mb-4">
-                        Ce que l'AIM change
-                      </p>
-                      <p className="text-[15px] leading-relaxed text-white/70">
-                        {icp.value}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-emerald-300/80 mb-4">
-                        Ce que vous pouvez lui confier
-                      </p>
-                      <div className="space-y-2.5">
-                        {icp.missions.map((m) => (
-                          <div key={m} className="flex items-start gap-2.5 text-[14px] text-white/60 leading-relaxed">
-                            <span className="mt-0.5 text-emerald-300/80 shrink-0">
-                              <Check size={14} />
-                            </span>
-                            {m}
-                          </div>
-                        ))}
-                      </div>
-                      <a href={BOOKING_URL} className="btn-ghost mt-6 !text-sm">
-                        Voir l'AIM sur votre cas <ArrowRight size={15} />
-                      </a>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            );
-          })}
+        <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 lg:flex lg:flex-wrap" role="tablist" aria-label="Choisir un profil métier">
+          {ICPS.map((i) => (
+            <button
+              key={i.id}
+              type="button"
+              role="tab"
+              aria-selected={i.id === active}
+              onClick={() => setActive(i.id)}
+              className={`icp-tab ${i.id === active ? "active" : ""}`}
+            >
+              <i.icon size={14} />
+              {i.tab}
+            </button>
+          ))}
         </div>
+
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={icp.id}
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+            className="mt-6 hairline rounded-3xl bg-white/[0.02] p-7 sm:p-12"
+          >
+            <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between mb-9">
+              <div className="flex items-center gap-4">
+                <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-orange-400/10 border border-orange-400/20 text-orange-300 shrink-0">
+                  <icp.icon size={22} />
+                </span>
+                <div>
+                  <h3 className="font-extrabold tracking-[-0.02em] text-xl sm:text-2xl leading-tight">
+                    {icp.title}
+                  </h3>
+                  <p className="font-mono text-[11px] tracking-widest text-white/35 uppercase mt-1">
+                    {icp.subtitle}
+                  </p>
+                </div>
+              </div>
+              <a href={BOOKING_URL} className="btn-ghost !text-sm justify-center sm:shrink-0">
+                Voir l'AIM sur votre cas <ArrowRight size={15} />
+              </a>
+            </div>
+
+            <div className="mb-10 max-w-3xl">
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-orange-300/80 mb-3">
+                Ce que l'AIM change
+              </p>
+              <p className="text-[16px] sm:text-lg leading-relaxed text-white/70 border-l-2 border-orange-400/50 pl-5">
+                {icp.value}
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-10 md:gap-12">
+              <div>
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-rose-300/80 mb-4">
+                  Là où ça coince
+                </p>
+                <ul className="space-y-2.5">
+                  {icp.pains.map((pain) => (
+                    <li key={pain} className="flex items-start gap-3 text-[14px] text-white/55 leading-relaxed">
+                      <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-rose-400/70 shrink-0" />
+                      {pain}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-emerald-300/80 mb-4">
+                  Ce que vous pouvez lui confier
+                </p>
+                <div className="space-y-2.5">
+                  {icp.missions.map((m) => (
+                    <div key={m} className="flex items-start gap-3 text-[14px] text-white/60 leading-relaxed">
+                      <span className="mt-0.5 text-emerald-300/80 shrink-0">
+                        <Check size={14} />
+                      </span>
+                      {m}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </AnimatePresence>
       </div>
     </section>
   );
