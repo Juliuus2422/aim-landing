@@ -335,7 +335,7 @@ function Atelier() {
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             Le système
           </p>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
+          <h2 className="max-[349px]:text-2xl text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             <span className="block">Un opérateur.</span>
             <span className="grad-text block">Pas un chatbot.</span>
           </h2>
@@ -487,7 +487,7 @@ function Objections() {
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             La différence
           </p>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
+          <h2 className="max-[349px]:text-2xl text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             <span className="block">L'IA, c'est le moteur.</span>
             <span className="grad-text block">L'AIM, c'est la voiture.</span>
           </h2>
