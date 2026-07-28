@@ -89,23 +89,24 @@ function Nav() {
     <header className="fixed top-4 inset-x-0 z-50 px-5 sm:px-10">
       {/* Pilule alignée sur la largeur du contenu du hero (max-w-7xl moins ses
           paddings) : son bord gauche tombe sur le texte, son bord droit sur le
-          système orbital. Fond en dégradé crépuscule, écho direct du footer
-          sky-dusk pour la cohérence graphique. Les liens sont centrés en absolu
+          système orbital. Fond en dégradé d'aube (crème vers doré) : depuis
+          que le hero est nocturne, la pilule porte le jour, en miroir de la
+          pilule sombre qu'appellerait le footer. Les liens sont centrés en absolu
           pour un centrage optique parfait, et n'apparaissent qu'à partir de
           xl : en dessous, sept liens ne tiennent pas sur une seule ligne. */}
-      <div className="relative max-w-[1200px] mx-auto flex items-center justify-between gap-3 rounded-full border border-white/15 bg-[linear-gradient(180deg,#7c3a12,#200a00_90%)] shadow-[0_12px_40px_-18px_rgba(38,24,10,0.55)] pl-5 pr-2 py-2">
+      <div className="relative max-w-[1200px] mx-auto flex items-center justify-between gap-3 rounded-full border border-[#26180a]/15 bg-[linear-gradient(180deg,#fef7ec,#ffce86_90%)] shadow-[0_12px_40px_-18px_rgba(38,24,10,0.55)] pl-5 pr-2 py-2">
         <a href="#" className="flex items-baseline gap-2 shrink-0">
-          <span className="font-extrabold tracking-tight text-[17px] text-[#fef7ec]">AI&nbsp;Manager</span>
-          <span className="font-mono text-[9px] text-[#fef7ec]/50 tracking-wider hidden sm:inline">
+          <span className="font-extrabold tracking-tight text-[17px] text-[#26180a]">AI&nbsp;Manager</span>
+          <span className="font-mono text-[9px] text-[#26180a]/50 tracking-wider hidden sm:inline">
             by Hit The Record
           </span>
         </a>
-        <nav className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center whitespace-nowrap font-medium text-[13px] text-[#fef7ec]/65">
+        <nav className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center whitespace-nowrap font-medium text-[13px] text-[#26180a]/65">
           {NAV_LINKS.map(([href, label]) => (
             <a
               key={href}
               href={href}
-              className="px-3 py-1.5 rounded-full hover:text-[#fef7ec] hover:bg-white/10 transition-colors"
+              className="px-3 py-1.5 rounded-full hover:text-[#26180a] hover:bg-[#26180a]/5 transition-colors"
             >
               {label}
             </a>
