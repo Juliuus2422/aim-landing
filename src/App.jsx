@@ -138,7 +138,7 @@ function Hero() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[2.7rem] leading-[1.06] sm:text-6xl font-extrabold tracking-[-0.03em] mb-7"
+          className="text-4xl leading-[1.06] sm:text-6xl font-extrabold tracking-[-0.03em] mb-7"
         >
           Une IA qui <span className="serif-accent">discute</span>, tu en as
           déjà une.
@@ -247,7 +247,8 @@ function Orbit() {
         <div>
           <span className="pill-tag-dark mb-5 inline-flex">L'infrastructure</span>
           <h2 className="text-3xl sm:text-[2.6rem] leading-[1.08] font-extrabold tracking-[-0.03em] mb-6">
-            Un cerveau au centre.{" "}
+            Un cerveau au centre.
+            <br />
             <span className="grad-text serif-accent">Ton système autour.</span>
           </h2>
           <p className="text-white/55 leading-relaxed mb-4">
@@ -306,7 +307,7 @@ function Manifeste() {
       <div className="max-w-6xl mx-auto text-center">
         <Reveal>
           <span className="pill-tag mb-6 inline-flex">Le constat</span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-7 mt-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-7 mt-6">
             L'automatisation exécute des{" "}
             <span className="serif-accent">scripts.</span>
             <br />
@@ -334,7 +335,7 @@ function Probleme() {
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
           <span className="pill-tag mb-6 inline-flex">Le problème</span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6">
+          <h2 className="text-2xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6">
             L'IA que tout le monde utilise
             <br />
             n'opère <span className="serif-accent">rien du tout.</span>
@@ -404,27 +405,25 @@ function Mecanique() {
         <Reveal>
           <div className="bento-big p-8 sm:p-10 relative overflow-hidden">
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#72fd4e]/10 blur-3xl pointer-events-none" />
-            {/* En-tête sur toute la largeur, puis les quatre savoirs en rangée :
-                des proportions stables, sans colonne qui déborde sur l'autre. */}
+            {/* Icône, titre, texte et cartes alignés sur le même bord gauche :
+                pas de marge créée par l'icône. */}
             <div className="relative">
-              <div className="flex items-start gap-5 mb-8">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-[#72fd4e]/10 border border-[#72fd4e]/25 text-[#9cfd00] shrink-0">
+              <div className="max-w-3xl mb-8">
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-[#72fd4e]/10 border border-[#72fd4e]/25 text-[#9cfd00] mb-6">
                   <Brain size={20} />
                 </span>
-                <div className="max-w-3xl">
-                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.01em] leading-snug mb-3">
-                    Un cerveau central. Il connaît ton business{" "}
-                    <span className="grad-text serif-accent">par cœur.</span>
-                  </h3>
-                  <p className="text-[15px] leading-relaxed text-white/55">
-                    Avant d'exécuter quoi que ce soit, l'AIM construit une
-                    mémoire structurée de ton entreprise. Chaque client, chaque
-                    échange, chaque décision l'enrichit. Il n'attend pas qu'on
-                    lui réexplique ton contexte : il le connaît déjà. Un outil
-                    exécute des tâches. Un système qui connaît ton business
-                    prend les bonnes.
-                  </p>
-                </div>
+                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.01em] leading-snug mb-3">
+                  Un cerveau central. Il connaît ton business{" "}
+                  <span className="grad-text serif-accent">par cœur.</span>
+                </h3>
+                <p className="text-[15px] leading-relaxed text-white/55">
+                  Avant d'exécuter quoi que ce soit, l'AIM construit une
+                  mémoire structurée de ton entreprise. Chaque client, chaque
+                  échange, chaque décision l'enrichit. Il n'attend pas qu'on
+                  lui réexplique ton contexte : il le connaît déjà. Un outil
+                  exécute des tâches. Un système qui connaît ton business
+                  prend les bonnes.
+                </p>
               </div>
               <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {BRAIN_KNOWS.map((b) => (
@@ -522,7 +521,7 @@ function Developpement() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <Reveal>
             <span className="pill-tag mb-6 inline-flex">Le développement</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6 mb-5">
+            <h2 className="text-2xl sm:text-4xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6 mb-5">
               Il n'exécute pas seulement.
               <br />
               Il <span className="serif-accent">construit.</span>
@@ -675,16 +674,25 @@ function Metiers() {
                     </div>
                   </motion.div>
 
-                  <button
-                    onClick={() => setOpenId(isOpen ? null : icp.id)}
-                    className="mt-auto flex items-center gap-2 font-medium text-[13.5px] text-[#3f7a1f] hover:text-[#17191c] transition-colors"
-                  >
-                    {isOpen ? "Replier le dossier" : "Ouvrir le dossier"}
-                    <ChevronDown
-                      size={15}
-                      className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
-                    />
-                  </button>
+                  {/* Pied de carte : le dossier à gauche, le call to action à droite. */}
+                  <div className="mt-auto flex items-center justify-between gap-3 flex-wrap">
+                    <button
+                      onClick={() => setOpenId(isOpen ? null : icp.id)}
+                      className="flex items-center gap-2 font-medium text-[13.5px] text-[#17191c]/55 hover:text-[#17191c] transition-colors"
+                    >
+                      {isOpen ? "Replier le dossier" : "Ouvrir le dossier"}
+                      <ChevronDown
+                        size={15}
+                        className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
+                      />
+                    </button>
+                    <a
+                      href={BOOKING_URL}
+                      className="flex items-center gap-1.5 font-semibold text-[13.5px] text-[#3f7a1f] hover:text-[#2c5716] transition-colors"
+                    >
+                      Réserver une démo <ArrowRight size={14} />
+                    </a>
+                  </div>
                 </div>
               </Reveal>
             );
@@ -708,7 +716,7 @@ function Souverainete() {
               <span className="fr-flag" /> Made in France
             </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
+          <h2 className="text-[1.75rem] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             Tes données ne quittent
             <br />
             <span className="serif-accent">jamais</span> tes serveurs.
@@ -747,7 +755,7 @@ function Demo() {
       <div className="max-w-6xl mx-auto text-center relative">
         <Reveal>
           <span className="pill-tag-dark mb-8 inline-flex">La suite</span>
-          <h2 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.03em] mb-6 leading-[1.08] mt-6">
+          <h2 className="text-[2rem] sm:text-6xl font-extrabold tracking-[-0.03em] mb-6 leading-[1.08] mt-6">
             30 minutes.
             <br />
             Ton cas, pas des{" "}
@@ -774,7 +782,7 @@ function Demo() {
 
 function Footer() {
   return (
-    <footer className="border-t border-white/[0.06] py-12 px-5 sm:px-8">
+    <footer className="relative border-t border-white/[0.06] py-12 px-5 sm:px-8">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
         <div className="flex items-baseline gap-2">
           <span className="font-extrabold tracking-tight">AI&nbsp;Manager</span>
@@ -817,9 +825,13 @@ export default function App() {
           <Probleme />
           <Mecanique />
         </div>
-        {/* Retour dans le sombre : la preuve produit, puis l'infrastructure. */}
-        <Produit />
-        <Orbit />
+        {/* Retour dans le sombre : le cerveau d'abord, la preuve ensuite.
+            Le champ de points connectés couvre toute la zone foncée. */}
+        <div className="relative overflow-hidden">
+          <DotsField className="dots-zone absolute inset-0 w-full h-full pointer-events-none" />
+          <Orbit />
+          <Produit />
+        </div>
         {/* Second bloc clair : différence, développement, métiers, souveraineté. */}
         <div className="light-body">
           <Difference />
@@ -827,9 +839,13 @@ export default function App() {
           <Metiers />
           <Souverainete />
         </div>
-        <Demo />
       </main>
-      <Footer />
+      {/* Zone finale sombre : la bande démo et le footer partagent le même champ. */}
+      <div className="relative overflow-hidden">
+        <DotsField className="dots-zone absolute inset-0 w-full h-full pointer-events-none" />
+        <Demo />
+        <Footer />
+      </div>
     </>
   );
 }

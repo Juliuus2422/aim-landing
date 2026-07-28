@@ -362,6 +362,12 @@ body {
   color: #3f7a1f;
 }
 
+/* Variante pour les zones sombres du corps de page : la nappe s'estompe aux deux bords. */
+.dots-zone {
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 12%, rgba(0, 0, 0, 0.8) 88%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 12%, rgba(0, 0, 0, 0.8) 88%, transparent 100%);
+}
+
 /* Le champ de points s'estompe vers le bas du hero pour laisser respirer la suite. */
 .dots-field {
   -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 55%, transparent 96%);
