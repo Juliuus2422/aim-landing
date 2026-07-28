@@ -943,7 +943,7 @@ function Embers() {
     const spawn = (anywhere) => ({
       x: Math.random() * width,
       y: anywhere ? Math.random() * height : height + 12,
-      r: 0.8 + Math.random() * 2.2,
+      r: 1 + Math.random() * 2.6,
       speed: 0.18 + Math.random() * 0.5,
       sway: 6 + Math.random() * 24,
       phase: Math.random() * Math.PI * 2,
@@ -958,7 +958,10 @@ function Embers() {
       canvas.width = Math.round(width * dpr);
       canvas.height = Math.round(height * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = width < 768 ? 45 : 90;
+      const count = Math.min(
+        140,
+        Math.max(45, Math.round((width * height) / 26000)),
+      );
       particles = Array.from({ length: count }, () => spawn(true));
     };
 
