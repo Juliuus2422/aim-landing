@@ -369,7 +369,7 @@ function Constat() {
               </span>
             </h2>
             <div className="mt-8">
-              <p className="text-white/50 text-lg leading-relaxed max-w-2xl">
+              <p className="text-white/50 text-lg leading-relaxed">
                 Un script s'arrête au premier imprévu. Un système autonome
                 comprend le contexte, décide, agit, et vient te chercher quand
                 l'enjeu mérite ta validation. C'est cette bascule que l'AIM te
@@ -421,7 +421,7 @@ function Probleme() {
                       {p.title}
                     </h3>
                   </div>
-                  <p className="text-white/50 text-base sm:text-lg leading-relaxed max-w-3xl">
+                  <p className="text-white/50 text-base sm:text-lg leading-relaxed">
                     {p.text}
                   </p>
                 </div>
@@ -447,7 +447,7 @@ function Probleme() {
                     Tout le monde vibe code. Presque personne ne construit.
                   </h3>
                 </div>
-                <p className="text-white/50 text-base sm:text-lg leading-relaxed max-w-3xl">
+                <p className="text-white/50 text-base sm:text-lg leading-relaxed">
                   Ouvrir Claude Code, générer son outil interne en un week-end,
                   le montrer fièrement sur LinkedIn. Trois mois plus tard : un
                   code que personne ne comprend, aucune sécurité, aucune
