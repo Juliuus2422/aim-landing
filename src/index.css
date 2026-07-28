@@ -9,10 +9,14 @@
 
 html {
   scroll-behavior: smooth;
+  /* Le fond est porté par html (canvas) et PAS par body : un background sur
+     body se peindrait par-dessus les couches fixes en z-index négatif
+     (aurora, grain) et les rendrait invisibles. */
+  background: #030306;
 }
 
 body {
-  background: #030306;
+  background: transparent;
   color: #f5f5f7;
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
