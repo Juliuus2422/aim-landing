@@ -874,7 +874,7 @@ function Intro() {
           >
             AI Manager by Hit The Record
           </motion.span>
-          <div className="font-extrabold tracking-tight leading-[1.12] text-[clamp(1.5rem,4.2vw,2.9rem)]">
+          <div className="font-extrabold tracking-tight leading-[1.12] text-[clamp(0.95rem,4.7vw,2.9rem)] sm:text-[clamp(1.5rem,4.2vw,2.9rem)]">
             <motion.span
               className="block text-white/55"
               initial={{ opacity: 0, y: 14 }}
@@ -1002,12 +1002,12 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.72, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap items-center gap-4 mb-10 max-w-xl"
+            className="flex flex-col sm:flex-row sm:items-center gap-4 mb-10 max-w-xl"
           >
-            <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
+            <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
               Réserver ma démo <ArrowRight size={18} />
             </a>
-            <a href="#systeme" className="btn-ghost flex-1 justify-center">
+            <a href="#systeme" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
               Voir comment ça marche
             </a>
           </motion.div>
@@ -1082,11 +1082,11 @@ function Manifeste() {
       <div className="max-w-7xl mx-auto text-center">
         <Reveal>
           <p className="kicker mb-6">Le constat</p>
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.15] mb-7">
-            L'automatisation exécute des scripts.
+          <h2 className="text-[min(6.6vw,1.875rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.15] mb-7">
+            L'automatisation <br className="sm:hidden" />exécute des scripts.
             <br />
             <span className="grad-text">
-              L'autonomisation opère ton entreprise.
+              L'autonomisation opère <br className="sm:hidden" />ton entreprise.
             </span>
           </h2>
           <p className="text-white/50 text-lg leading-relaxed max-w-2xl mx-auto">
@@ -1142,7 +1142,7 @@ function Probleme() {
     <section id="probleme" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <SectionHead num="01" label="Le problème">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             L'IA que tout le monde utilise
             <br />
             <span className="grad-text">n'opère rien du tout.</span>
@@ -1253,7 +1253,7 @@ function Systeme() {
     <section id="systeme" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <SectionHead num="02" label="Le système">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Un opérateur.
             <br />
             <span className="grad-text">Pas un chatbot.</span>
@@ -1355,7 +1355,7 @@ function Difference() {
     <section id="difference" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <SectionHead num="03" label="La différence">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             L'IA, c'est le moteur.
             <br />
             <span className="grad-text">L'AIM, c'est la voiture.</span>
@@ -1444,7 +1444,7 @@ function Developpement() {
     <section id="developpement" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <SectionHead num="04" label="Le développement">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Il n'exécute pas seulement.
             <br />
             <span className="grad-text">Il construit.</span>
@@ -1534,7 +1534,7 @@ function Icp() {
     <section id="icp" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <SectionHead num="05" label="Pour qui">
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Ton métier.
             <br />
             <span className="grad-text">Ta réalité.</span>
@@ -1648,7 +1648,7 @@ function Souverainete() {
               <span className="fr-flag" /> Made in France
             </span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Tes données ne quittent
             <br />
             <span className="grad-text">jamais tes serveurs.</span>
@@ -1708,7 +1708,7 @@ function Demo() {
         <Reveal>
           <p className="secnum mb-3">07</p>
           <p className="kicker mb-6">La suite</p>
-          <h2 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.03em] mb-6 leading-[1.08]">
+          <h2 className="text-[min(8vw,2.25rem)] sm:text-6xl font-extrabold tracking-[-0.03em] mb-6 leading-[1.08]">
             30 minutes.
             <br />
             <span className="grad-text">Ton cas, pas des slides.</span>

@@ -86,6 +86,14 @@ body {
   to   { transform: translate3d(-12vw, 22vh, 0) scale(0.95); }
 }
 
+/* Sur mobile, les halos aurora manquent de place pour respirer et salissent
+   le fond plus qu'ils ne l'habillent : on les coupe sous 640px. */
+@media (max-width: 640px) {
+  .aurora {
+    display: none;
+  }
+}
+
 .grain {
   position: fixed;
   inset: 0;
@@ -167,6 +175,7 @@ body {
   padding: 0.95rem 1.9rem;
   transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
   box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  white-space: nowrap;
 }
 
 .btn-primary:hover {
@@ -186,6 +195,7 @@ body {
   border-radius: 9999px;
   padding: 0.95rem 1.9rem;
   transition: border-color 0.3s ease, background 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-ghost:hover {
