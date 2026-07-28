@@ -227,6 +227,11 @@ function Orbit() {
         <Reveal className="relative">
           <div className="absolute inset-[10%] rounded-full bg-[radial-gradient(circle,rgba(114,253,78,0.1),transparent_65%)] blur-2xl pointer-events-none" />
           <SystemMap />
+          {/* Légende commune aux quatre versions : la carte montre notre vraie instance. */}
+          <p className="mt-4 text-center font-mono text-[11px] text-white/35 tracking-wide max-w-md mx-auto leading-relaxed">
+            Un aperçu de notre propre instance, qui grandit chaque semaine.
+            La tienne se construira autour de tes outils, sans limite.
+          </p>
         </Reveal>
       </div>
     </section>
