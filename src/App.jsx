@@ -86,24 +86,26 @@ const NAV_LINKS = [
 
 function Nav() {
   return (
-    <header className="fixed top-4 inset-x-0 z-50 px-4">
-      {/* Pilule en position relative : les liens sont centrés en absolu pour
-          un centrage optique parfait, indépendant des largeurs du logo et du
-          CTA. Ils n'apparaissent qu'à partir de xl : en dessous, sept liens
-          ne tiennent pas sur une seule ligne. */}
-      <div className="relative max-w-6xl mx-auto flex items-center justify-between gap-3 rounded-full border border-stone-900/[0.09] bg-[#fffdf8]/85 backdrop-blur-md shadow-[0_12px_40px_-18px_rgba(38,24,10,0.3)] pl-5 pr-2 py-2">
+    <header className="fixed top-4 inset-x-0 z-50 px-5 sm:px-10">
+      {/* Pilule alignée sur la largeur du contenu du hero (max-w-7xl moins ses
+          paddings) : son bord gauche tombe sur le texte, son bord droit sur le
+          système orbital. Fond en dégradé crépuscule, écho direct du footer
+          sky-dusk pour la cohérence graphique. Les liens sont centrés en absolu
+          pour un centrage optique parfait, et n'apparaissent qu'à partir de
+          xl : en dessous, sept liens ne tiennent pas sur une seule ligne. */}
+      <div className="relative max-w-[1200px] mx-auto flex items-center justify-between gap-3 rounded-full border border-white/15 bg-[linear-gradient(180deg,#7c3a12,#200a00_90%)] shadow-[0_12px_40px_-18px_rgba(38,24,10,0.55)] pl-5 pr-2 py-2">
         <a href="#" className="flex items-baseline gap-2 shrink-0">
-          <span className="font-extrabold tracking-tight text-[17px]">AI&nbsp;Manager</span>
-          <span className="font-mono text-[9px] text-stone-900/45 tracking-wider hidden sm:inline">
+          <span className="font-extrabold tracking-tight text-[17px] text-[#fef7ec]">AI&nbsp;Manager</span>
+          <span className="font-mono text-[9px] text-[#fef7ec]/50 tracking-wider hidden sm:inline">
             by Hit The Record
           </span>
         </a>
-        <nav className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center whitespace-nowrap font-medium text-[13px] text-stone-900/60">
+        <nav className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center whitespace-nowrap font-medium text-[13px] text-[#fef7ec]/65">
           {NAV_LINKS.map(([href, label]) => (
             <a
               key={href}
               href={href}
-              className="px-3 py-1.5 rounded-full hover:text-stone-900 hover:bg-stone-900/[0.05] transition-colors"
+              className="px-3 py-1.5 rounded-full hover:text-[#fef7ec] hover:bg-white/10 transition-colors"
             >
               {label}
             </a>
@@ -168,8 +170,8 @@ function Hero() {
             <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
               Réserver une démo <ArrowRight size={18} />
             </a>
-            <a href="#atelier" className="btn-ghost flex-1 justify-center">
-              Visiter l'atelier
+            <a href="#constat" className="btn-ghost flex-1 justify-center">
+              Lire le récit
             </a>
           </motion.div>
 
@@ -181,11 +183,13 @@ function Hero() {
           >
             <Sparkles size={18} className="text-[#d7722d] shrink-0 mt-0.5" />
             <p className="text-[13.5px] leading-relaxed text-stone-900/65">
-              <span className="font-semibold text-stone-900">
+              <span className="font-semibold text-stone-900 block">
                 Cette page a été conçue, codée et mise en ligne par l'AIM
                 lui-même.
-              </span>{" "}
-              Pas une métaphore : on te montre les coulisses en démo.
+              </span>
+              <span className="block mt-1">
+                Pas une métaphore : on te montre les coulisses en démo.
+              </span>
             </p>
           </motion.div>
         </div>
@@ -201,8 +205,6 @@ function Hero() {
         </motion.div>
       </div>
 
-      {/* La ligne d'horizon garde l'identité « lever de soleil » de la version. */}
-      <div className="horizon absolute inset-x-0 bottom-0 h-px" />
     </section>
   );
 }

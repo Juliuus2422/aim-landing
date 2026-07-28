@@ -370,9 +370,9 @@ body {
 }
 
 /* ------------------------- architecture « Studio » -------------------------
-   Page claire d'atelier : ciel d'aube dans le hero, horizon où le système
-   orbital se lève comme un soleil, timeline verticale, bande sombre pour la
-   souveraineté, et un coucher de soleil miroir en bas de page. */
+   Page claire d'atelier : ciel d'aube dans le hero avec le système orbital
+   en pleine lumière, timeline verticale pour la méthode, et un coucher de
+   soleil en bas de page dont la pilule de navigation reprend le dégradé. */
 
 .sky-dawn {
   background: linear-gradient(
@@ -395,19 +395,6 @@ body {
     #ffce86 86%,
     #fef7ec 100%
   );
-}
-
-.horizon {
-  position: relative;
-}
-.horizon::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(38, 24, 10, 0.35), transparent);
 }
 
 .tl-line {
