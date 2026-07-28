@@ -374,14 +374,18 @@ body {
    en pleine lumière, timeline verticale pour la méthode, et un coucher de
    soleil en bas de page dont la pilule de navigation reprend le dégradé. */
 
+/* Ciel d'aube du hero : la lumière culmine au milieu, là où se lève le
+   système orbital, puis redescend en crème pour se fondre sans rupture dans
+   la section du constat. Même logique de fondu que le sky-dusk du footer. */
 .sky-dawn {
   background: linear-gradient(
     180deg,
     #fef7ec 0%,
-    #ffedb2 34%,
-    #ffce86 58%,
-    #ffaf5a 78%,
-    #d7722d 100%
+    #ffedb2 28%,
+    #ffce86 46%,
+    #ffaf5a 62%,
+    #ffdda6 82%,
+    #fef7ec 100%
   );
 }
 
