@@ -48,7 +48,7 @@ function Intro() {
           >
             AI Manager by Hit The Record
           </motion.span>
-          <div className="font-extrabold tracking-tight leading-[1.12] text-[clamp(1.5rem,4.2vw,2.9rem)]">
+          <div className="font-extrabold tracking-tight leading-[1.2] text-[min(4.2vw,2.9rem)] whitespace-nowrap">
             <motion.span
               className="block text-stone-900/55"
               initial={{ opacity: 0, y: 14 }}
@@ -165,12 +165,12 @@ function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mb-6 max-w-xl mx-auto lg:mx-0"
+            className="flex flex-col sm:flex-row sm:items-center justify-center lg:justify-start gap-4 mb-6 max-w-xl mx-auto lg:mx-0"
           >
-            <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
+            <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
               Réserver une démo <ArrowRight size={18} />
             </a>
-            <a href="#atelier" className="btn-ghost flex-1 justify-center">
+            <a href="#atelier" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
               Voir comment ça marche
             </a>
           </motion.div>
@@ -336,7 +336,8 @@ function Atelier() {
             Le système
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
-            Un opérateur. <span className="grad-text">Pas un chatbot.</span>
+            <span className="block">Un opérateur.</span>
+            <span className="grad-text block">Pas un chatbot.</span>
           </h2>
           <p className="text-stone-900/60 text-lg leading-relaxed max-w-2xl mx-auto">
             Un impayé, un lead, un avis client, un post à publier : la vraie
@@ -487,8 +488,8 @@ function Objections() {
             La différence
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
-            L'IA, c'est le moteur.{" "}
-            <span className="grad-text">L'AIM, c'est la voiture.</span>
+            <span className="block">L'IA, c'est le moteur.</span>
+            <span className="grad-text block">L'AIM, c'est la voiture.</span>
           </h2>
           <p className="text-stone-900/60 text-lg leading-relaxed max-w-2xl">
             Un moteur seul n'a jamais emmené personne nulle part. Nous, on
