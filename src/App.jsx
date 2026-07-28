@@ -1142,7 +1142,7 @@ function Probleme() {
     <section id="probleme" className="py-20 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto">
         <SectionHead num="01" label="Le problème">
-          <h2 className="text-[min(6.6vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
+          <h2 className="text-[min(6.1vw,2.25rem)] sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             L'IA que tout le monde utilise
             <br />
             <span className="grad-text">n'opère rien du tout.</span>
