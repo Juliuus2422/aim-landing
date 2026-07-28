@@ -1,14 +1,14 @@
 /* =============================================================================
    L'AIM : landing V4 « Produit »
-   Page SaaS product-led : hero sombre où l'app tourne dans une fenêtre de
-   navigateur, corps de page clair en blocs alternés texte / interface,
-   bento grid pour la mécanique, terminal pour le développement, bande
-   sombre finale. Les mots-clés passent en serif italique.
+   Page SaaS futuriste : hero sombre sur un réseau de points connectés,
+   récit clair (constat, problème, mécanique), preuve produit dans une
+   fenêtre de navigateur, infrastructure en orbite, puis différence,
+   développement, métiers et souveraineté. Mots-clés en serif italique vert.
    ============================================================================= */
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence, useScroll, useSpring } from "framer-motion";
-import { ArrowRight, Bug, Brain, Check, ChevronDown, Sparkles } from "lucide-react";
+import { ArrowRight, Bug, Brain, Check, ChevronDown, Sparkles, Plug, UserCheck, Server } from "lucide-react";
 import {
   BOOKING_URL,
   TOOLS,
@@ -23,6 +23,7 @@ import {
 } from "./content.jsx";
 import { Reveal, SystemMap } from "./orbital.jsx";
 import { ValidationScene } from "./scene.jsx";
+import { DotsField } from "./dots.jsx";
 
 /* --------------------------------- nav ------------------------------------- */
 
@@ -111,13 +112,15 @@ function Nav() {
 }
 
 /* --------------------------------- hero ------------------------------------
-   Sombre, centré, product-led : la promesse au-dessus, l'app qui tourne
-   en dessous, dans une vraie fenêtre. */
+   Sombre, centré, futuriste : un réseau de points connectés dérive derrière
+   la promesse. Un seul mot en vert vif, façon signal. */
 
 function Hero() {
   return (
     <section className="relative pt-40 sm:pt-48 pb-20 px-5 sm:px-8 overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(ellipse_at_top,rgba(114,253,78,0.09),transparent_60%)] pointer-events-none" />
+      {/* Le réseau de points connectés qui dérive : la touche futuriste du hero. */}
+      <DotsField className="dots-field absolute inset-0 pointer-events-none" />
       <div className="max-w-6xl mx-auto text-center relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
@@ -141,7 +144,7 @@ function Hero() {
           déjà une.
           <br />
           Voici celle qui{" "}
-          <span className="grad-text serif-accent">travaille.</span>
+          <span className="serif-accent text-[#72fd4e]">travaille.</span>
         </motion.h1>
 
         <motion.p
@@ -168,31 +171,66 @@ function Hero() {
             Voir comment ça marche
           </a>
         </motion.div>
-      </div>
 
-      <motion.div
-        id="produit"
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.65, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-5xl mx-auto mt-16 scroll-mt-24 relative"
-      >
-        <div className="browser-chrome">
-          <div className="browser-bar">
-            <span className="browser-dot" />
-            <span className="browser-dot" />
-            <span className="browser-dot" />
-            <span className="browser-url">app.aim · file d'attente de validation</span>
+        {/* Trois repères factuels en pastilles fines, sous les CTA. */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+          className="flex flex-wrap justify-center gap-3 mt-10"
+        >
+          {[
+            { icon: Plug, label: "Branché sur tes outils" },
+            { icon: UserCheck, label: "Validation humaine sur l'essentiel" },
+            { icon: Server, label: "Self-hosted en France" },
+          ].map((f) => (
+            <span
+              key={f.label}
+              className="inline-flex items-center gap-2 rounded-full border border-white/[0.12] bg-white/[0.03] px-4 py-2 font-mono text-[12px] text-white/60"
+            >
+              <f.icon size={14} className="text-[#72fd4e]" />
+              {f.label}
+            </span>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+/* ------------------------- le produit : la fenêtre --------------------------
+   L'app dans une vraie fenêtre de navigateur. Sortie du hero pour arriver
+   après la mécanique : d'abord la promesse et le système, ensuite la preuve. */
+
+function Produit() {
+  return (
+    <section id="produit" className="relative py-24 px-5 sm:px-8 scroll-mt-24 overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-96 bg-[radial-gradient(ellipse_at_top,rgba(114,253,78,0.07),transparent_60%)] pointer-events-none" />
+      <div className="max-w-6xl mx-auto relative">
+        <Reveal className="text-center mb-12">
+          <span className="pill-tag-dark mb-6 inline-flex">Le produit</span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6">
+            L'opérateur, <span className="serif-accent text-[#72fd4e]">en action.</span>
+          </h2>
+        </Reveal>
+        <Reveal className="max-w-5xl mx-auto relative">
+          <div className="browser-chrome">
+            <div className="browser-bar">
+              <span className="browser-dot" />
+              <span className="browser-dot" />
+              <span className="browser-dot" />
+              <span className="browser-url">app.aim · file d'attente de validation</span>
+            </div>
+            <div className="p-5 sm:p-8">
+              <ValidationScene />
+            </div>
           </div>
-          <div className="p-5 sm:p-8">
-            <ValidationScene />
-          </div>
-        </div>
-        <p className="text-center font-mono text-[11px] text-white/35 mt-5 tracking-wide max-w-md mx-auto leading-relaxed">
-          Ce n'est pas une maquette : c'est la mécanique réelle de l'AIM sur
-          six situations, en boucle. Clique pour naviguer.
-        </p>
-      </motion.div>
+          <p className="text-center font-mono text-[11px] text-white/35 mt-5 tracking-wide max-w-md mx-auto leading-relaxed">
+            Ce n'est pas une maquette : c'est la mécanique réelle de l'AIM sur
+            six situations, en boucle. Clique pour naviguer.
+          </p>
+        </Reveal>
+      </div>
     </section>
   );
 }
@@ -366,28 +404,32 @@ function Mecanique() {
         <Reveal>
           <div className="bento-big p-8 sm:p-10 relative overflow-hidden">
             <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#72fd4e]/10 blur-3xl pointer-events-none" />
-            <div className="relative grid lg:grid-cols-2 gap-10 items-start">
-              <div>
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-[#72fd4e]/10 border border-[#72fd4e]/25 text-[#9cfd00] mb-6">
+            {/* En-tête sur toute la largeur, puis les quatre savoirs en rangée :
+                des proportions stables, sans colonne qui déborde sur l'autre. */}
+            <div className="relative">
+              <div className="flex items-start gap-5 mb-8">
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-[#72fd4e]/10 border border-[#72fd4e]/25 text-[#9cfd00] shrink-0">
                   <Brain size={20} />
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.01em] leading-snug mb-4">
-                  Un cerveau central. Il connaît ton business{" "}
-                  <span className="grad-text serif-accent">par cœur.</span>
-                </h3>
-                <p className="text-[15px] leading-relaxed text-white/55">
-                  Avant d'exécuter quoi que ce soit, l'AIM construit une
-                  mémoire structurée de ton entreprise. Chaque client, chaque
-                  échange, chaque décision l'enrichit. Il n'attend pas qu'on
-                  lui réexplique ton contexte : il le connaît déjà. Un outil
-                  exécute des tâches. Un système qui connaît ton business
-                  prend les bonnes.
-                </p>
+                <div className="max-w-3xl">
+                  <h3 className="text-2xl sm:text-3xl font-extrabold tracking-[-0.01em] leading-snug mb-3">
+                    Un cerveau central. Il connaît ton business{" "}
+                    <span className="grad-text serif-accent">par cœur.</span>
+                  </h3>
+                  <p className="text-[15px] leading-relaxed text-white/55">
+                    Avant d'exécuter quoi que ce soit, l'AIM construit une
+                    mémoire structurée de ton entreprise. Chaque client, chaque
+                    échange, chaque décision l'enrichit. Il n'attend pas qu'on
+                    lui réexplique ton contexte : il le connaît déjà. Un outil
+                    exécute des tâches. Un système qui connaît ton business
+                    prend les bonnes.
+                  </p>
+                </div>
               </div>
-              <div className="grid sm:grid-cols-2 gap-3">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                 {BRAIN_KNOWS.map((b) => (
-                  <div key={b.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                    <p className="font-semibold text-[13.5px] mb-1 text-white/85">{b.title}</p>
+                  <div key={b.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
+                    <p className="font-semibold text-[13.5px] mb-1.5 text-white/85">{b.title}</p>
                     <p className="text-[12.5px] leading-relaxed text-white/45">{b.text}</p>
                   </div>
                 ))}
@@ -396,9 +438,14 @@ function Mecanique() {
           </div>
         </Reveal>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+        {/* Cinq piliers sur une grille 3 + 2 : aucune case vide en bas. */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-6 gap-5 mt-5">
           {PILLARS.map((p, i) => (
-            <Reveal key={p.title} delay={i * 0.05}>
+            <Reveal
+              key={p.title}
+              delay={i * 0.05}
+              className={`h-full ${i < 3 ? "lg:col-span-2" : "lg:col-span-3"} ${i === 4 ? "sm:col-span-2" : ""}`}
+            >
               <div className="light-card p-7 h-full">
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#72fd4e]/15 border border-[#3f7a1f]/25 text-[#3f7a1f] mb-4">
                   <p.icon size={18} />
@@ -763,21 +810,23 @@ export default function App() {
       <Nav />
       <main>
         <Hero />
-        <Orbit />
         <ToolsStrip />
-        {/* Fondu du monde sombre vers le corps clair : pas de rupture nette. */}
-        <div aria-hidden className="h-28 bg-[linear-gradient(180deg,#0f0f10,#fbfbfb)]" />
+        {/* Premier bloc clair : le récit. Constat, problème, mécanique. */}
         <div className="light-body">
           <Manifeste />
           <Probleme />
           <Mecanique />
+        </div>
+        {/* Retour dans le sombre : la preuve produit, puis l'infrastructure. */}
+        <Produit />
+        <Orbit />
+        {/* Second bloc clair : différence, développement, métiers, souveraineté. */}
+        <div className="light-body">
           <Difference />
           <Developpement />
           <Metiers />
           <Souverainete />
         </div>
-        {/* Fondu inverse : le corps clair redescend dans la nuit du final. */}
-        <div aria-hidden className="h-28 bg-[linear-gradient(180deg,#fbfbfb,#0f0f10)]" />
         <Demo />
       </main>
       <Footer />

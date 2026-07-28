@@ -356,6 +356,18 @@ body {
   letter-spacing: -0.015em;
 }
 
+/* Dans les blocs clairs, les mots en serif italique passent au vert encre :
+   ils ressortent au lieu de rester noirs. Le combo grad-text garde son dégradé. */
+.light-body .serif-accent:not(.grad-text) {
+  color: #3f7a1f;
+}
+
+/* Le champ de points s'estompe vers le bas du hero pour laisser respirer la suite. */
+.dots-field {
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 55%, transparent 96%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.6) 55%, transparent 96%);
+}
+
 /* ------------------------- architecture « Produit » ------------------------
    Page SaaS product-led : hero sombre avec l'app dans une fenêtre navigateur,
    corps de page clair, bento grid, terminal pour le développement, bande
