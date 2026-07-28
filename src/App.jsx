@@ -318,7 +318,7 @@ function Hero() {
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.85, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-6 xl:col-span-7 relative w-full max-w-md mx-auto lg:max-w-none"
+            className="lg:col-span-6 xl:col-span-7 relative w-full max-w-md mx-auto lg:max-w-none lg:-mt-20"
           >
             <div className="absolute inset-[8%] rounded-full bg-[radial-gradient(circle,rgba(255,172,67,0.16),transparent_65%)] blur-2xl pointer-events-none" />
             <SystemMap />
@@ -361,15 +361,15 @@ function Constat() {
     <section id="chapitre-1" className="px-5 sm:px-10 py-24 scroll-mt-16">
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="01" label="Chapitre 1 · Le constat">
-          <div className="grid lg:grid-cols-12 gap-10 mt-10">
-            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
+          <div className="mt-10">
+            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">L'automatisation exécute des scripts.</span>
               <span className="grad-text block">
                 L'autonomisation opère ton entreprise.
               </span>
             </h2>
-            <div className="lg:col-span-4 lg:pt-4">
-              <p className="text-white/50 text-lg leading-relaxed">
+            <div className="mt-8 lg:flex lg:justify-end">
+              <p className="text-white/50 text-lg leading-relaxed max-w-2xl">
                 Un script s'arrête au premier imprévu. Un système autonome
                 comprend le contexte, décide, agit, et vient te chercher quand
                 l'enjeu mérite ta validation. C'est cette bascule que l'AIM te
@@ -393,8 +393,8 @@ function Probleme() {
     <section id="chapitre-2" className="px-5 sm:px-10 py-24 scroll-mt-16">
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="02" label="Chapitre 2 · Le problème">
-          <div className="mt-10 mb-16 max-w-4xl">
-            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
+          <div className="mt-10 mb-16">
+            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">L'IA que tout le monde utilise</span>
               <span className="grad-text block">n'opère rien du tout.</span>
             </h2>
@@ -504,11 +504,11 @@ function Systeme() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="03" label="Chapitre 3 · Le système">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-7 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Un opérateur.</span>
               <span className="grad-text block">Pas un chatbot.</span>
             </h2>
-            <p className="lg:col-span-5 text-white/50 text-lg leading-relaxed lg:pt-4">
+            <p className="lg:col-span-4 text-white/50 text-lg leading-relaxed lg:pt-4">
               Un impayé, un lead, un avis client, un post à publier : la vraie
               mécanique de l'AIM sur six situations réelles. Clique pour
               naviguer, ou laisse tourner.
@@ -586,11 +586,11 @@ function Difference() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="04" label="Chapitre 4 · La différence">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-7 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">L'IA, c'est le moteur.</span>
               <span className="grad-text block">L'AIM, c'est la voiture.</span>
             </h2>
-            <p className="lg:col-span-5 text-white/50 text-lg leading-relaxed lg:pt-4">
+            <p className="lg:col-span-4 text-white/50 text-lg leading-relaxed lg:pt-4">
               Un moteur seul n'a jamais emmené personne nulle part. Nous, on
               livre le véhicule complet : châssis, commandes, sécurité, carnet
               d'entretien.
@@ -633,11 +633,11 @@ function Developpement() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="05" label="Chapitre 5 · Le développement">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-7 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Il n'exécute pas seulement.</span>
               <span className="grad-text block">Il construit.</span>
             </h2>
-            <p className="lg:col-span-5 text-white/50 text-lg leading-relaxed lg:pt-4">
+            <p className="lg:col-span-4 text-white/50 text-lg leading-relaxed lg:pt-4">
               C'est LA différence avec tout ce que tu verras ailleurs. Les
               plateformes d'exécution s'arrêtent là où ton besoin devient
               spécifique. L'AIM franchit cette limite : il développe avec toi
@@ -720,7 +720,7 @@ function Icp() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="06" label="Chapitre 6 · Pour qui">
           <div className="mt-10 mb-14 max-w-4xl">
-            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
+            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Ton métier.</span>
               <span className="grad-text block">Ta réalité.</span>
             </h2>
@@ -818,17 +818,15 @@ function Souverainete() {
     <section id="chapitre-7" className="px-5 sm:px-10 py-24 scroll-mt-16">
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="07" label="Chapitre 7 · Souveraineté">
-          <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <div className="lg:col-span-7">
-              <span className="fr-badge mb-6 inline-flex">
-                <span className="fr-flag" /> Made in France
-              </span>
-              <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.4rem,5.5vw,5rem)]">
-                <span className="block">Tes données ne quittent</span>
-                <span className="grad-text block">jamais tes serveurs.</span>
-              </h2>
-            </div>
-            <p className="lg:col-span-5 text-white/50 text-lg leading-relaxed lg:pt-4">
+          <span className="fr-badge mt-10 inline-flex">
+            <span className="fr-flag" /> Made in France
+          </span>
+          <div className="grid lg:grid-cols-12 gap-10 mt-6 mb-14">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+              <span className="block">Tes données ne quittent</span>
+              <span className="grad-text block">jamais tes serveurs.</span>
+            </h2>
+            <p className="lg:col-span-4 text-white/50 text-lg leading-relaxed lg:pt-4">
               Pendant que le marché envoie tout dans des clouds étrangers, on a
               fait le choix inverse : un système souverain, français, qui
               t'appartient entièrement.
