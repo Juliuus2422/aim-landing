@@ -262,7 +262,7 @@ function Manifeste() {
     <div id="constat" className="py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto text-center">
         <Reveal>
-          <span className="pill-tag mb-6 inline-flex">Changement d'ère</span>
+          <span className="pill-tag mb-6 inline-flex">Le constat</span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-7 mt-6">
             L'automatisation exécute des{" "}
             <span className="serif-accent">scripts.</span>
@@ -351,7 +351,7 @@ function Mecanique() {
     <div id="mecanique" className="py-16 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
-          <span className="pill-tag mb-6 inline-flex">La mécanique</span>
+          <span className="pill-tag mb-6 inline-flex">Le système</span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6">
             Un <span className="serif-accent">opérateur.</span> Pas un chatbot.
           </h2>
@@ -649,9 +649,12 @@ function Souverainete() {
     <div id="souverainete" className="py-16 pb-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
-          <span className="fr-badge !border-[#17191c]/20 !text-[#17191c] mb-6 inline-flex">
-            <span className="fr-flag" /> Made in France
-          </span>
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-6">
+            <span className="pill-tag inline-flex">Souveraineté</span>
+            <span className="fr-badge !border-[#17191c]/20 !text-[#17191c] inline-flex">
+              <span className="fr-flag" /> Made in France
+            </span>
+          </div>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             Tes données ne quittent
             <br />
