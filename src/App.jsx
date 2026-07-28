@@ -1081,7 +1081,7 @@ function Manifeste() {
     <section id="constat" className="py-16 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-7xl mx-auto text-center">
         <Reveal>
-          <p className="kicker mb-6">Changement d'ère</p>
+          <p className="kicker mb-6">Le constat</p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.15] mb-7">
             L'automatisation exécute des scripts.
             <br />
