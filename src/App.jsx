@@ -198,7 +198,7 @@ function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          className="relative w-full max-w-[560px] mx-auto lg:max-w-none px-3 sm:px-6 lg:px-2"
+          className="relative w-full max-w-[560px] mx-auto lg:max-w-none px-3 sm:px-6 lg:px-0"
         >
           <div className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,rgba(255,175,90,0.5),rgba(215,114,45,0.22)_45%,transparent_70%)] blur-2xl pointer-events-none" />
           <SystemMap />
