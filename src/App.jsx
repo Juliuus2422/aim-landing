@@ -1016,13 +1016,14 @@ export default function App() {
     restDelta: 0.001,
   });
 
-  /* La teinte des halos suit le récit : orange au constat, rouge sombre au
-     problème, doré au système, retour orange, puis bleu froid à la
-     souveraineté. Écrite en variable CSS pour l'aurora et les braises. */
+  /* La teinte des halos suit le récit, en restant dans la famille chaude de
+     la marque : orange au constat, rouge sombre au problème (tension), doré
+     au système (la solution éclaire), puis retour à l'orange signature.
+     Écrite en variable CSS pour l'aurora et les braises. */
   const glowHue = useTransform(
     scrollYProgress,
-    [0, 0.15, 0.33, 0.55, 0.82, 0.92, 1],
-    [28, 2, 48, 26, 30, 210, 210],
+    [0, 0.15, 0.33, 0.55, 0.85, 1],
+    [28, 2, 48, 26, 30, 28],
   );
   useMotionValueEvent(glowHue, "change", (v) => {
     document.documentElement.style.setProperty("--glow-h", v.toFixed(1));
