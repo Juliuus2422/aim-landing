@@ -146,7 +146,7 @@ function Nav() {
           <div className="flex items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="btn-primary !h-10 !py-0 !px-5 !text-sm hidden sm:inline-flex"
+              className="btn-primary !h-10 !py-0 !px-5 !text-sm !hidden sm:!inline-flex"
             >
               Réserver une démo
             </a>
