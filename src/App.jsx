@@ -294,11 +294,11 @@ function Hero() {
               métier et exécute : relances, reporting, devis, suivi. Pendant ce
               temps, tu fais ce que personne ne peut faire à ta place.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <a href={BOOKING_URL} className="btn-primary">
+            <div className="mt-8 flex flex-wrap items-center gap-4 max-w-xl">
+              <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
                 Réserver ma démo <ArrowRight size={18} />
               </a>
-              <a href="#chapitre-1" className="btn-ghost">
+              <a href="#chapitre-1" className="btn-ghost flex-1 justify-center">
                 Lire le récit
               </a>
             </div>
@@ -372,7 +372,9 @@ function Constat() {
               <p className="text-white/50 text-lg leading-relaxed">
                 Un script s'arrête au premier imprévu. Un système autonome
                 comprend le contexte, décide, agit, et vient te chercher quand
-                l'enjeu mérite ta validation. C'est cette bascule que l'AIM te
+                l'enjeu mérite ta validation.
+                <br />
+                C'est cette bascule que l'AIM te
                 fait franchir : tu ne programmes plus des tâches, tu confies
                 un périmètre.
               </p>
