@@ -84,7 +84,7 @@ function Intro() {
               AI Manager by Hit The Record
             </motion.span>
             <motion.p
-              className="font-extrabold tracking-[-0.04em] leading-[1.02] text-[clamp(1.9rem,5vw,4.5rem)] text-white/55"
+              className="font-extrabold tracking-[-0.04em] leading-[1.02] text-[clamp(1rem,4.8vw,4.5rem)] sm:text-[clamp(1.9rem,5vw,4.5rem)] text-white/55"
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -92,7 +92,7 @@ function Intro() {
               Une IA qui discute, tu en as déjà une.
             </motion.p>
             <motion.p
-              className="font-extrabold tracking-[-0.04em] leading-[1.02] text-[clamp(2.2rem,6vw,5.5rem)] grad-text mt-1"
+              className="font-extrabold tracking-[-0.04em] leading-[1.02] text-[clamp(1.2rem,5.8vw,5.5rem)] sm:text-[clamp(2.2rem,6vw,5.5rem)] grad-text mt-1"
               initial={{ opacity: 0, y: 22 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -246,13 +246,13 @@ function Nav() {
 
 function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 sm:px-10 pt-20 pb-20">
+    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden px-5 sm:px-10 pt-32 pb-20">
       <div className="max-w-[1400px] mx-auto w-full relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex flex-wrap items-center gap-3 mb-10"
+          className="flex flex-col items-start gap-3 sm:flex-row sm:items-center mb-10"
         >
           <span className="fr-badge">
             <span className="fr-flag" /> Conçu & hébergé en France
@@ -301,11 +301,11 @@ function Hero() {
               métier et exécute : relances, reporting, devis, suivi. Pendant ce
               temps, tu fais ce que personne ne peut faire à ta place.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4 max-w-xl">
-              <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
+            <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 max-w-xl">
+              <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
                 Réserver ma démo <ArrowRight size={18} />
               </a>
-              <a href="#chapitre-1" className="btn-ghost flex-1 justify-center">
+              <a href="#chapitre-1" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
                 Lire le récit
               </a>
             </div>
@@ -345,7 +345,7 @@ function Ticker() {
   const items = [...TOOLS, ...TOOLS];
   return (
     <section className="py-8 border-y border-white/[0.06] bg-white/[0.015]">
-      <p className="text-center font-mono text-[10px] tracking-[0.3em] uppercase text-white/30 mb-5">
+      <p className="text-center font-mono text-[9px] sm:text-[10px] tracking-[0.2em] sm:tracking-[0.3em] uppercase text-white/30 mb-5 px-6 [text-wrap:balance]">
         Quelques outils déjà branchés dans notre propre système
       </p>
       <div className="ticker-mask overflow-hidden">
@@ -369,10 +369,10 @@ function Constat() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="01" label="Chapitre 1 · Le constat">
           <div className="mt-10">
-            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
-              <span className="block">L'automatisation exécute des scripts.</span>
+            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
+              <span className="block">L'automatisation <br className="sm:hidden" />exécute des scripts.</span>
               <span className="grad-text block">
-                L'autonomisation opère ton entreprise.
+                L'autonomisation opère <br className="sm:hidden" />ton entreprise.
               </span>
             </h2>
             <div className="mt-8">
@@ -403,7 +403,7 @@ function Probleme() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="02" label="Chapitre 2 · Le problème">
           <div className="mt-10 mb-16">
-            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+            <h2 className="font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">L'IA que tout le monde utilise</span>
               <span className="grad-text block">n'opère rien du tout.</span>
             </h2>
@@ -423,7 +423,7 @@ function Probleme() {
                 </span>
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-4">
-                    <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-orange-400/10 border border-orange-400/20 text-orange-300">
+                    <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-orange-400/10 border border-orange-400/20 text-orange-300 shrink-0">
                       <p.icon size={20} />
                     </span>
                     <h3 className="text-2xl sm:text-3xl font-bold tracking-[-0.01em]">
@@ -449,7 +449,7 @@ function Probleme() {
               </span>
               <div className="flex-1">
                 <div className="flex items-center gap-4 mb-4">
-                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-rose-400/10 border border-rose-400/25 text-rose-300">
+                  <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-rose-400/10 border border-rose-400/25 text-rose-300 shrink-0">
                     <Bug size={20} />
                   </span>
                   <h3 className="text-2xl sm:text-3xl font-bold tracking-[-0.01em]">
@@ -513,7 +513,7 @@ function Systeme() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="03" label="Chapitre 3 · Le système">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Un opérateur.</span>
               <span className="grad-text block">Pas un chatbot.</span>
             </h2>
@@ -595,7 +595,7 @@ function Difference() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="04" label="Chapitre 4 · La différence">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">L'IA, c'est le moteur.</span>
               <span className="grad-text block">L'AIM, c'est la voiture.</span>
             </h2>
@@ -642,7 +642,7 @@ function Developpement() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="05" label="Chapitre 5 · Le développement">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Il n'exécute pas seulement.</span>
               <span className="grad-text block">Il construit.</span>
             </h2>
@@ -660,7 +660,7 @@ function Developpement() {
           {DEV_POINTS.map((d, i) => (
             <Reveal key={d.title} delay={i * 0.06} className="bg-black p-8 sm:p-10">
               <div className="flex items-center gap-4 mb-5">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-orange-400/10 border border-orange-400/20 text-orange-300">
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-orange-400/10 border border-orange-400/20 text-orange-300 shrink-0">
                   <d.icon size={20} />
                 </span>
                 <span className="font-mono text-[11px] tracking-[0.3em] text-white/30">
@@ -729,7 +729,7 @@ function Icp() {
       <div className="max-w-[1400px] mx-auto">
         <Chapter num="06" label="Chapitre 6 · Pour qui">
           <div className="grid lg:grid-cols-12 gap-10 mt-10 mb-14">
-            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Ton métier.</span>
               <span className="grad-text block">Ta réalité.</span>
             </h2>
@@ -836,7 +836,7 @@ function Souverainete() {
             <span className="fr-flag" /> Made in France
           </span>
           <div className="grid lg:grid-cols-12 gap-10 mt-6 mb-14">
-            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[clamp(2.3rem,4.3vw,3.75rem)]">
+            <h2 className="lg:col-span-8 font-extrabold tracking-[-0.03em] leading-[1.02] text-[min(6.6vw,2.3rem)] sm:text-[clamp(2.3rem,4.3vw,3.75rem)]">
               <span className="block">Tes données ne quittent</span>
               <span className="grad-text block">jamais tes serveurs.</span>
             </h2>
@@ -875,7 +875,7 @@ function Demo() {
           <p className="font-mono text-[11px] tracking-[0.35em] uppercase text-orange-300/80 mb-8">
             Épilogue · La suite t'appartient
           </p>
-          <h2 className="font-extrabold tracking-[-0.04em] leading-[0.95] text-[clamp(3rem,9vw,8rem)] mb-10">
+          <h2 className="font-extrabold tracking-[-0.04em] leading-[0.95] text-[min(8vw,3rem)] sm:text-[clamp(3rem,9vw,8rem)] mb-10">
             30 minutes.
             <br />
             <span className="grad-text">Ton cas, pas des slides.</span>

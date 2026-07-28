@@ -165,6 +165,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
+  white-space: nowrap;
   background: #f5f5f7;
   color: #0a0a0f;
   font-weight: 600;
@@ -191,6 +192,7 @@ body {
   border-radius: 9999px;
   padding: 0.95rem 1.9rem;
   transition: border-color 0.3s ease, background 0.3s ease;
+  white-space: nowrap;
 }
 
 .btn-ghost:hover {
