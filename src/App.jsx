@@ -94,6 +94,7 @@ function Nav() {
           <a href="#produit" className="hover:text-white transition-colors">Le produit</a>
           <a href="#mecanique" className="hover:text-white transition-colors">La mécanique</a>
           <a href="#dev" className="hover:text-white transition-colors">Développement</a>
+          <a href="#souverainete" className="hover:text-white transition-colors">Souveraineté</a>
           <a href="#metiers" className="hover:text-white transition-colors">Pour qui</a>
         </nav>
         <a href={BOOKING_URL} className="btn-primary !py-2.5 !px-5 !text-sm">
@@ -113,7 +114,7 @@ function Hero() {
   return (
     <section className="relative pt-40 sm:pt-48 pb-20 px-5 sm:px-8 overflow-hidden">
       <div className="absolute inset-x-0 top-0 h-[42rem] bg-[radial-gradient(ellipse_at_top,rgba(114,253,78,0.09),transparent_60%)] pointer-events-none" />
-      <div className="max-w-4xl mx-auto text-center relative">
+      <div className="max-w-6xl mx-auto text-center relative">
         <motion.div
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
@@ -170,7 +171,7 @@ function Hero() {
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.65, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-        className="max-w-4xl mx-auto mt-16 scroll-mt-24 relative"
+        className="max-w-5xl mx-auto mt-16 scroll-mt-24 relative"
       >
         <div className="browser-chrome">
           <div className="browser-bar">
@@ -255,7 +256,7 @@ function ToolsStrip() {
 function Manifeste() {
   return (
     <div className="py-20 sm:py-24 px-5 sm:px-8">
-      <div className="max-w-3xl mx-auto text-center">
+      <div className="max-w-6xl mx-auto text-center">
         <Reveal>
           <span className="pill-tag mb-6 inline-flex">Changement d'ère</span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-7 mt-6">
@@ -352,11 +353,11 @@ function Mecanique() {
           </h2>
         </Reveal>
 
-        <div className="grid lg:grid-cols-3 gap-5">
-          <Reveal className="lg:col-span-2 lg:row-span-2">
-            <div className="bento-big p-8 sm:p-10 h-full relative overflow-hidden">
-              <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#72fd4e]/10 blur-3xl pointer-events-none" />
-              <div className="relative">
+        <Reveal>
+          <div className="bento-big p-8 sm:p-10 relative overflow-hidden">
+            <div className="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-[#72fd4e]/10 blur-3xl pointer-events-none" />
+            <div className="relative grid lg:grid-cols-2 gap-10 items-start">
+              <div>
                 <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-[#72fd4e]/10 border border-[#72fd4e]/25 text-[#9cfd00] mb-6">
                   <Brain size={20} />
                 </span>
@@ -364,7 +365,7 @@ function Mecanique() {
                   Un cerveau central. Il connaît ton business{" "}
                   <span className="grad-text serif-accent">par cœur.</span>
                 </h3>
-                <p className="text-[15px] leading-relaxed text-white/55 max-w-xl mb-8">
+                <p className="text-[15px] leading-relaxed text-white/55">
                   Avant d'exécuter quoi que ce soit, l'AIM construit une
                   mémoire structurée de ton entreprise. Chaque client, chaque
                   échange, chaque décision l'enrichit. Il n'attend pas qu'on
@@ -372,32 +373,22 @@ function Mecanique() {
                   exécute des tâches. Un système qui connaît ton business
                   prend les bonnes.
                 </p>
-                <div className="grid sm:grid-cols-2 gap-3">
-                  {BRAIN_KNOWS.map((b) => (
-                    <div key={b.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
-                      <p className="font-semibold text-[13.5px] mb-1 text-white/85">{b.title}</p>
-                      <p className="text-[12.5px] leading-relaxed text-white/45">{b.text}</p>
-                    </div>
-                  ))}
-                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-3">
+                {BRAIN_KNOWS.map((b) => (
+                  <div key={b.title} className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                    <p className="font-semibold text-[13.5px] mb-1 text-white/85">{b.title}</p>
+                    <p className="text-[12.5px] leading-relaxed text-white/45">{b.text}</p>
+                  </div>
+                ))}
               </div>
             </div>
-          </Reveal>
+          </div>
+        </Reveal>
 
-          {PILLARS.slice(0, 2).map((p, i) => (
-            <Reveal key={p.title} delay={0.08 + i * 0.06}>
-              <div className="light-card p-7 h-full">
-                <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#72fd4e]/15 border border-[#3f7a1f]/25 text-[#3f7a1f] mb-4">
-                  <p.icon size={18} />
-                </span>
-                <h3 className="font-bold text-[16px] mb-2">{p.title}</h3>
-                <p className="text-[14px] leading-relaxed text-[#17191c]/55">{p.text}</p>
-              </div>
-            </Reveal>
-          ))}
-
-          {PILLARS.slice(2).map((p, i) => (
-            <Reveal key={p.title} delay={0.2 + i * 0.06}>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
+          {PILLARS.map((p, i) => (
+            <Reveal key={p.title} delay={i * 0.05}>
               <div className="light-card p-7 h-full">
                 <span className="inline-flex items-center justify-center w-10 h-10 rounded-xl bg-[#72fd4e]/15 border border-[#3f7a1f]/25 text-[#3f7a1f] mb-4">
                   <p.icon size={18} />
@@ -418,7 +409,7 @@ function Mecanique() {
 function Difference() {
   return (
     <div className="py-16 px-5 sm:px-8">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
           <span className="pill-tag mb-6 inline-flex">La différence</span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6 mb-5">
@@ -651,7 +642,7 @@ function Metiers() {
 
 function Souverainete() {
   return (
-    <div className="py-16 pb-24 px-5 sm:px-8">
+    <div id="souverainete" className="py-16 pb-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-6xl mx-auto">
         <Reveal className="text-center mb-12">
           <span className="fr-badge !border-[#17191c]/20 !text-[#17191c] mb-6 inline-flex">
@@ -693,7 +684,7 @@ function Demo() {
   return (
     <section className="relative py-28 px-5 sm:px-8 overflow-hidden">
       <div className="absolute inset-x-0 bottom-[-40%] h-[80%] bg-[radial-gradient(ellipse_at_bottom,rgba(114,253,78,0.12),transparent_65%)] pointer-events-none" />
-      <div className="max-w-3xl mx-auto text-center relative">
+      <div className="max-w-6xl mx-auto text-center relative">
         <Reveal>
           <span className="pill-tag-dark mb-8 inline-flex">La suite</span>
           <h2 className="text-4xl sm:text-6xl font-extrabold tracking-[-0.03em] mb-6 leading-[1.08] mt-6">
@@ -765,10 +756,10 @@ export default function App() {
           <Manifeste />
           <Probleme />
           <Mecanique />
-          <Difference />
           <Developpement />
-          <Metiers />
           <Souverainete />
+          <Difference />
+          <Metiers />
         </div>
         <Demo />
       </main>
