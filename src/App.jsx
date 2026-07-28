@@ -79,7 +79,7 @@ function Nav() {
         href="#dev"
         className="block bg-[#72fd4e] text-[#0f0f10] text-center font-mono text-[11px] font-semibold tracking-wide py-2 px-4 hover:bg-[#9cfd00] transition-colors"
       >
-        Cette page a été conçue, codée et mise en ligne par L'AIM lui-même.
+        Cette page a été conçue, codée et mise en ligne par l'AIM lui-même.
         Voir comment ↓
       </a>
       <div className="border-b border-white/[0.07] bg-[#0f0f10]/85 backdrop-blur-md">
@@ -159,13 +159,13 @@ function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap justify-center items-center gap-4 max-w-xl mx-auto"
+          className="flex flex-col sm:flex-row sm:items-center justify-center gap-4 max-w-xl mx-auto"
         >
-          <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
+          <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
             Réserver une démo <ArrowRight size={18} />
           </a>
-          <a href="#produit" className="btn-ghost flex-1 justify-center">
-            Voir le produit
+          <a href="#mecanique" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
+            Voir comment ça marche
           </a>
         </motion.div>
       </div>
@@ -358,7 +358,8 @@ function Mecanique() {
         <Reveal className="text-center mb-12">
           <span className="pill-tag mb-6 inline-flex">Le système</span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mt-6">
-            Un <span className="serif-accent">opérateur.</span> Pas un chatbot.
+            <span className="block">Un <span className="serif-accent">opérateur.</span></span>
+            <span className="block">Pas un chatbot.</span>
           </h2>
         </Reveal>
 
@@ -764,6 +765,8 @@ export default function App() {
         <Hero />
         <Orbit />
         <ToolsStrip />
+        {/* Fondu du monde sombre vers le corps clair : pas de rupture nette. */}
+        <div aria-hidden className="h-28 bg-[linear-gradient(180deg,#0f0f10,#fbfbfb)]" />
         <div className="light-body">
           <Manifeste />
           <Probleme />
@@ -773,6 +776,8 @@ export default function App() {
           <Metiers />
           <Souverainete />
         </div>
+        {/* Fondu inverse : le corps clair redescend dans la nuit du final. */}
+        <div aria-hidden className="h-28 bg-[linear-gradient(180deg,#fbfbfb,#0f0f10)]" />
         <Demo />
       </main>
       <Footer />
