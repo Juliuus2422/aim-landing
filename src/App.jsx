@@ -146,9 +146,9 @@ function Nav() {
           <div className="flex items-center gap-3">
             <a
               href={BOOKING_URL}
-              className="btn-primary !py-2.5 !px-5 !text-sm hidden sm:inline-flex"
+              className="btn-primary !h-10 !py-0 !px-5 !text-sm hidden sm:inline-flex"
             >
-              Réserver ma démo
+              Réserver une démo
             </a>
             <button
               type="button"
@@ -222,7 +222,7 @@ function Nav() {
                   <span className="font-mono text-[12px] text-orange-300/70 w-10 shrink-0">
                     08
                   </span>
-                  <span className="menu-link-label grad-text">Réserver ma démo</span>
+                  <span className="menu-link-label grad-text">Réserver une démo</span>
                   <ArrowRight
                     size={22}
                     className="opacity-0 group-hover:opacity-100 transition-opacity text-orange-300 shrink-0"
@@ -303,7 +303,7 @@ function Hero() {
             </p>
             <div className="mt-8 flex flex-col sm:flex-row sm:items-center gap-4 max-w-xl">
               <a href={BOOKING_URL} className="btn-primary w-full sm:w-auto sm:flex-1 justify-center">
-                Réserver ma démo <ArrowRight size={18} />
+                Réserver une démo <ArrowRight size={18} />
               </a>
               <a href="#chapitre-1" className="btn-ghost w-full sm:w-auto sm:flex-1 justify-center">
                 Lire le récit
@@ -882,7 +882,7 @@ function Demo() {
           </h2>
           <div className="flex flex-col sm:flex-row sm:items-center gap-8">
             <a href={BOOKING_URL} className="btn-primary !text-lg !px-10 !py-4 w-fit">
-              Réserver ma démo <ArrowRight size={20} />
+              Réserver une démo <ArrowRight size={20} />
             </a>
             <p className="text-white/50 leading-relaxed max-w-md">
               On te montre l'AIM en fonctionnement sur un environnement qui
