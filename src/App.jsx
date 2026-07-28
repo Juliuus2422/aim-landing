@@ -1,9 +1,9 @@
 /* =============================================================================
    L'AIM : landing V3 « Studio »
-   Page claire d'atelier : ciel d'aube dans le hero avec le système orbital
-   qui se lève sur l'horizon comme un soleil, checklist éditoriale pour le
-   problème, timeline verticale pour le système, bande sombre pour la
-   souveraineté, objections en accordéon, et coucher de soleil miroir en bas.
+   Page claire d'atelier : ciel d'aube pleine largeur dans le hero avec le
+   système orbital en pleine lumière à côté du titre, checklist éditoriale
+   pour le problème, timeline verticale pour la méthode, objections en
+   accordéon, et coucher de soleil miroir en bas de page.
    ============================================================================= */
 
 import { useState, useEffect } from "react";
@@ -74,26 +74,42 @@ function Intro() {
 
 /* --------------------------------- nav ------------------------------------- */
 
+const NAV_LINKS = [
+  ["#constat", "Le constat"],
+  ["#probleme", "Le problème"],
+  ["#atelier", "Le système"],
+  ["#objections", "La différence"],
+  ["#dev", "Le développement"],
+  ["#metiers", "Pour qui"],
+  ["#souverainete", "Souveraineté"],
+];
+
 function Nav() {
   return (
     <header className="fixed top-4 inset-x-0 z-50 px-4">
-      <div className="max-w-5xl mx-auto flex items-center justify-between gap-3 rounded-full border border-stone-900/[0.09] bg-[#fffdf8]/85 backdrop-blur-md shadow-[0_12px_40px_-18px_rgba(38,24,10,0.3)] pl-5 pr-2 py-2">
-        <a href="#" className="flex items-baseline gap-2">
+      {/* Pilule en position relative : les liens sont centrés en absolu pour
+          un centrage optique parfait, indépendant des largeurs du logo et du
+          CTA. Ils n'apparaissent qu'à partir de xl : en dessous, sept liens
+          ne tiennent pas sur une seule ligne. */}
+      <div className="relative max-w-6xl mx-auto flex items-center justify-between gap-3 rounded-full border border-stone-900/[0.09] bg-[#fffdf8]/85 backdrop-blur-md shadow-[0_12px_40px_-18px_rgba(38,24,10,0.3)] pl-5 pr-2 py-2">
+        <a href="#" className="flex items-baseline gap-2 shrink-0">
           <span className="font-extrabold tracking-tight text-[17px]">AI&nbsp;Manager</span>
           <span className="font-mono text-[9px] text-stone-900/45 tracking-wider hidden sm:inline">
             by Hit The Record
           </span>
         </a>
-        <nav className="hidden lg:flex items-center gap-5 font-medium text-[13px] text-stone-900/60">
-          <a href="#constat" className="hover:text-stone-900 transition-colors">Le constat</a>
-          <a href="#probleme" className="hover:text-stone-900 transition-colors">Le problème</a>
-          <a href="#atelier" className="hover:text-stone-900 transition-colors">Le système</a>
-          <a href="#objections" className="hover:text-stone-900 transition-colors">La différence</a>
-          <a href="#dev" className="hover:text-stone-900 transition-colors">Le développement</a>
-          <a href="#metiers" className="hover:text-stone-900 transition-colors">Pour qui</a>
-          <a href="#souverainete" className="hover:text-stone-900 transition-colors">Souveraineté</a>
+        <nav className="absolute left-1/2 -translate-x-1/2 hidden xl:flex items-center whitespace-nowrap font-medium text-[13px] text-stone-900/60">
+          {NAV_LINKS.map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              className="px-3 py-1.5 rounded-full hover:text-stone-900 hover:bg-stone-900/[0.05] transition-colors"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
-        <a href={BOOKING_URL} className="btn-primary !py-2 !px-4 !text-[13px] !rounded-full">
+        <a href={BOOKING_URL} className="nav-cta shrink-0">
           Réserver une démo
         </a>
       </div>
@@ -102,87 +118,91 @@ function Nav() {
 }
 
 /* --------------------------------- hero ------------------------------------
-   Un ciel d'aube. Le système orbital se lève sur la ligne d'horizon comme
-   un soleil : le jour se lève sur une nouvelle façon de travailler. */
+   Un ciel d'aube pleine largeur : le texte à gauche, le système orbital en
+   pleine lumière à droite. Sur mobile, l'orbital descend sous le texte et
+   reste entier : plus rien n'est coupé. */
 
 function Hero() {
   return (
-    <section className="sky-dawn relative pt-28 sm:pt-32 overflow-hidden">
-      <div className="max-w-5xl mx-auto text-center px-5 sm:px-8 relative">
+    <section className="sky-dawn relative pt-28 sm:pt-32 pb-14 sm:pb-16 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-10 grid lg:grid-cols-[1.05fr_0.95fr] gap-12 lg:gap-8 items-center">
+        <div className="text-center lg:text-left">
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="flex justify-center lg:justify-start gap-3 mb-8 flex-wrap"
+          >
+            <span className="fr-badge">
+              <span className="fr-flag" /> Conçu & hébergé en France
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="text-[2.5rem] leading-[1.05] sm:text-6xl lg:text-5xl xl:text-6xl font-extrabold tracking-[-0.03em] mb-7"
+          >
+            Une IA qui discute, tu en as déjà une.{" "}
+            <span className="grad-text">Voici celle qui travaille.</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.35, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="text-lg text-stone-900/65 leading-relaxed max-w-xl mx-auto lg:mx-0 mb-9"
+          >
+            L'AI Manager est branché sur tes outils, applique ta logique métier
+            et exécute : relances, reporting, devis, suivi. Pendant ce temps, tu
+            fais ce que personne ne peut faire à ta place.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="flex flex-wrap justify-center lg:justify-start items-center gap-4 mb-6 max-w-xl mx-auto lg:mx-0"
+          >
+            <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
+              Réserver une démo <ArrowRight size={18} />
+            </a>
+            <a href="#atelier" className="btn-ghost flex-1 justify-center">
+              Visiter l'atelier
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.8, duration: 0.7 }}
+            className="studio-card flex items-start gap-3 text-left max-w-xl mx-auto lg:mx-0 px-5 py-4"
+          >
+            <Sparkles size={18} className="text-[#d7722d] shrink-0 mt-0.5" />
+            <p className="text-[13.5px] leading-relaxed text-stone-900/65">
+              <span className="font-semibold text-stone-900">
+                Cette page a été conçue, codée et mise en ligne par l'AIM
+                lui-même.
+              </span>{" "}
+              Pas une métaphore : on te montre les coulisses en démo.
+            </p>
+          </motion.div>
+        </div>
+
         <motion.div
-          initial={{ opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="flex justify-center gap-3 mb-8 flex-wrap"
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.5, duration: 1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative w-full max-w-[560px] mx-auto lg:max-w-none px-3 sm:px-6 lg:px-2"
         >
-          <span className="fr-badge">
-            <span className="fr-flag" /> Conçu & hébergé en France
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
-          className="text-[2.6rem] leading-[1.05] sm:text-6xl font-extrabold tracking-[-0.03em] mb-7"
-        >
-          Une IA qui discute, tu en as déjà une.{" "}
-          <span className="grad-text">Voici celle qui travaille.</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.35, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="text-lg text-stone-900/65 leading-relaxed max-w-xl mx-auto mb-9"
-        >
-          L'AI Manager est branché sur tes outils, applique ta logique métier
-          et exécute : relances, reporting, devis, suivi. Pendant ce temps, tu
-          fais ce que personne ne peut faire à ta place.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5, duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-wrap justify-center items-center gap-4 mb-6 max-w-xl mx-auto"
-        >
-          <a href={BOOKING_URL} className="btn-primary flex-1 justify-center">
-            Réserver une démo <ArrowRight size={18} />
-          </a>
-          <a href="#atelier" className="btn-ghost flex-1 justify-center">
-            Visiter l'atelier
-          </a>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8, duration: 0.7 }}
-          className="studio-card flex items-start gap-3 text-left max-w-xl mx-auto px-5 py-4"
-        >
-          <Sparkles size={18} className="text-[#d7722d] shrink-0 mt-0.5" />
-          <p className="text-[13.5px] leading-relaxed text-stone-900/65">
-            <span className="font-semibold text-stone-900">
-              Cette page a été conçue, codée et mise en ligne par l'AIM
-              lui-même.
-            </span>{" "}
-            Pas une métaphore : on te montre les coulisses en démo.
-          </p>
+          <div className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,rgba(255,175,90,0.5),rgba(215,114,45,0.22)_45%,transparent_70%)] blur-2xl pointer-events-none" />
+          <SystemMap />
         </motion.div>
       </div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 80 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.55, duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
-        className="horizon sun-clip mt-8 sm:mt-10"
-      >
-        <div className="relative w-[min(90vw,42rem)] pb-6">
-          <div className="absolute inset-[6%] rounded-full bg-[radial-gradient(circle,rgba(255,175,90,0.5),rgba(215,114,45,0.22)_45%,transparent_70%)] blur-2xl pointer-events-none" />
-          <SystemMap />
-        </div>
-      </motion.div>
+      {/* La ligne d'horizon garde l'identité « lever de soleil » de la version. */}
+      <div className="horizon absolute inset-x-0 bottom-0 h-px" />
     </section>
   );
 }
@@ -342,9 +362,10 @@ function Atelier() {
               système qui connaît ton business prend les bonnes.
             </p>
           </Reveal>
-          <div className="grid sm:grid-cols-2 gap-4">
+          {/* auto-rows-fr : les quatre cartes partagent la même hauteur. */}
+          <div className="grid sm:grid-cols-2 auto-rows-fr gap-4">
             {BRAIN_KNOWS.map((b, i) => (
-              <Reveal key={b.title} delay={i * 0.06}>
+              <Reveal key={b.title} delay={i * 0.06} className="h-full">
                 <div className="studio-card p-6 h-full">
                   <p className="font-semibold text-[15px] mb-1.5">{b.title}</p>
                   <p className="text-[13px] leading-relaxed text-stone-900/50">{b.text}</p>
@@ -368,7 +389,7 @@ function Methode() {
       <div className="max-w-5xl mx-auto">
         <Reveal className="mb-14">
           <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
-            Le système
+            La méthode
           </p>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12]">
             Comment l'AIM travaille,{" "}
@@ -400,39 +421,41 @@ function Methode() {
   );
 }
 
-/* ------------------------- bande sombre : souveraineté ---------------------- */
+/* ------------------------------ souveraineté --------------------------------
+   Section claire comme le reste de la page : la bande sombre isolée cassait
+   l'unité visuelle, le passage vers la nuit est réservé au final sky-dusk. */
 
 function Souverainete() {
   return (
-    <section id="souverainete" className="dark-band py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
+    <section id="souverainete" className="py-20 sm:py-24 px-5 sm:px-8 scroll-mt-16">
       <div className="max-w-5xl mx-auto">
         <Reveal className="text-center mb-14">
-          <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-[#fef7ec]/50 mb-5">
+          <p className="font-mono text-[11px] tracking-[0.3em] uppercase text-orange-700/80 mb-5">
             Souveraineté
           </p>
-          <span className="fr-badge !border-white/20 !text-[#fef7ec] mb-6 inline-flex">
+          <span className="fr-badge mb-6 inline-flex">
             <span className="fr-flag" /> Made in France
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-[-0.02em] leading-[1.12] mb-5">
             Tes données ne quittent{" "}
             <span className="grad-text">jamais tes serveurs.</span>
           </h2>
-          <p className="text-[#fef7ec]/60 text-lg leading-relaxed max-w-2xl mx-auto">
+          <p className="text-stone-900/60 text-lg leading-relaxed max-w-2xl mx-auto">
             Pendant que le marché envoie tout dans des clouds étrangers, on a
             fait le choix inverse : un système souverain, français, qui
             t'appartient entièrement.
           </p>
         </Reveal>
 
-        <div className="grid md:grid-cols-3 gap-5">
+        <div className="grid md:grid-cols-3 auto-rows-fr gap-5">
           {SOUV.map((s, i) => (
-            <Reveal key={s.title} delay={i * 0.07}>
-              <div className="rounded-2xl border border-white/12 bg-white/[0.04] p-7 h-full">
-                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-white/[0.07] border border-white/15 text-orange-300 mb-5">
+            <Reveal key={s.title} delay={i * 0.07} className="h-full">
+              <div className="studio-card p-7 h-full">
+                <span className="inline-flex items-center justify-center w-11 h-11 rounded-2xl bg-orange-700/10 border border-orange-700/20 text-orange-700 mb-5">
                   <s.icon size={20} />
                 </span>
                 <h3 className="text-lg font-bold mb-3">{s.title}</h3>
-                <p className="text-[15px] leading-relaxed text-[#fef7ec]/55">{s.text}</p>
+                <p className="text-[15px] leading-relaxed text-stone-900/55">{s.text}</p>
               </div>
             </Reveal>
           ))}
@@ -643,6 +666,8 @@ function Metiers() {
             className="studio-card p-7 sm:p-9"
           >
             <h3 className="text-2xl font-extrabold tracking-[-0.01em] mb-7">{icp.title}</h3>
+            {/* Ordre de lecture : les freins et les missions d'abord, la
+                synthèse « Ce que l'AIM change » ensuite, le CTA en clôture. */}
             <div className="grid md:grid-cols-2 gap-8">
               <div>
                 <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-rose-700/80 mb-4">
@@ -658,26 +683,28 @@ function Metiers() {
                 </ul>
               </div>
               <div>
-                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-orange-700/80 mb-4">
-                  Ce que l'AIM change
+                <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-emerald-700/80 mb-4">
+                  Ce que vous pouvez lui confier
                 </p>
-                <p className="text-[15px] leading-relaxed text-stone-900/75">{icp.value}</p>
+                <div className="space-y-2.5">
+                  {icp.missions.map((m) => (
+                    <div key={m} className="flex items-start gap-2.5 text-[14px] text-stone-900/65 leading-relaxed">
+                      <span className="mt-0.5 text-emerald-700/80 shrink-0">
+                        <Check size={14} />
+                      </span>
+                      {m}
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
             <div className="mt-8 pt-7 border-t border-stone-900/[0.09]">
-              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-emerald-700/80 mb-4">
-                Ce que vous pouvez lui confier
+              <p className="font-mono text-[10px] tracking-[0.3em] uppercase text-orange-700/80 mb-3">
+                Ce que l'AIM change
               </p>
-              <div className="grid sm:grid-cols-2 gap-x-8 gap-y-2.5">
-                {icp.missions.map((m) => (
-                  <div key={m} className="flex items-start gap-2.5 text-[14px] text-stone-900/65 leading-relaxed">
-                    <span className="mt-0.5 text-emerald-700/80 shrink-0">
-                      <Check size={14} />
-                    </span>
-                    {m}
-                  </div>
-                ))}
-              </div>
+              <p className="text-[15px] leading-relaxed text-stone-900/75 border-l-2 border-orange-700/40 pl-4 max-w-3xl">
+                {icp.value}
+              </p>
               <a href={BOOKING_URL} className="btn-ghost mt-7">
                 Voir l'AIM sur votre cas <ArrowRight size={16} />
               </a>
